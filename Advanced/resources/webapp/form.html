@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+<h1>注册</h1>
+<!--method=get/post action="向何处发送表单数据(可以是网站也可以是地址)"-->
+<form method="get" action="start.html">
+<p>username:<input type="text" value="tips" maxlength="8" size="30" name="username" readonly></p>
+    <!--表单正则判断 pattern-->
+<p>password:<input type="password" name="password" placeholder="plz input password" required></p>
+<p>submit:<input type="submit"></p>
+<p>reset:<input type="reset" hidden></p>
+    <!--单选框radio name属性表述组，一个组的话就一次只能选一个-->
+    <!--disabled 禁用-->
+<p>radio:<input value="man" type="radio" name="sex" disabled/>男
+radio:<input value="woman" type="radio" name="sex"/>女</p>
+    <!--多选框checkedbox name属性表述组，一个组的话就一次只能选一个-->
+    <p>check:<input value="sleep" type="checkbox" name="love"/>sleep
+    check:<input value="code" type="checkbox" name="love"/>code
+    check:<input value="cat" type="checkbox" name="love" checked/>cat
+    check:<input value="game" type="checkbox" name="love"/>game</p>
+</form>
+
+<select name="下来列表">
+    <option value="china">china</option>
+    <option value="usa" selected>usa</option>
+    <option value="england">england</option>
+    <option value="india">india</option>
+</select>
+</body>
+</html>

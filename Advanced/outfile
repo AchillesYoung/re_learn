@@ -1,0 +1,88 @@
+一、已知Music类，里面有歌曲名和时长，并重写了hashCode和equals方法。
+现要求使用HashSet添加2个Music对象，并遍历。显示时将歌曲名长度>3的截取前三位后面追加...
+示例：歌曲名：亲爱的祖国。显示为：亲爱的...
+其他不变
+
+
+
+HashSet<Music> set = new HashSet<>();
+
+set.add(new Music("亲爱的祖国",1234545));
+set.add(new Music("龙的传人",23456));
+set.add(new Music("消愁",12345));
+
+
+Iterator iter = set.iterator();
+while(iter.hasNext()){
+	Music music= iter.next();
+	String name = music.getName();
+
+	if(name.length()>3){
+		System.out.println("歌曲名："+name.substring(0,3)+"..."+"时长："+music.getTimes());
+	}else{
+		System.out.println("歌曲名："+name+"时长："+music.getTimes());
+	}
+	
+
+}
+
+
+
+二、试写出List和Set的区别
+
+
+List：允许重复，支持索引，有序（插入和取出的顺序一致）
+
+Set：不允许重复，不支持索引，无序（插入和取出的顺序不一致）
+
+
+
+
+三、试写出遍历map的两种方式
+
+方式一：调用entrySet获取所有关系
+
+//①获取所有关系Set集合
+Set<Map.Entry> entrys = map.entrySet();
+
+//②获取Set集合的迭代器对象
+Iterator<Map.Entry> iter = entrys.iterator();
+
+//③通过Iterator实现Set集合的遍历
+
+while(iter.hasNext()){
+	Map.Entry entry = iter.next();
+	System.out.println(entry.getKey());
+	System.out.println(entry.getValue());
+
+}
+
+
+
+方式二：调用keySet获取所有键
+
+//①获取所有键Set集合
+
+Set keys = map.keySet();
+//②遍历Set集合
+
+for(Object key:keys){
+	Sysetm.out.println(key+"\t"+map.get(key));
+
+}
+
+四、试写出下面代码结果
+HashSet set = new HashSet();
+Person p1 = new Person(1001,"AA");
+Person p2 = new Person(1002,"BB");
+
+set.add(p1);
+set.add(p2);
+p1.name = "CC";
+set.remove(p1);
+System.out.println(set); //1002 BB
+set.add(new Person(1001,"CC"));
+System.out.println(set);//1001 CC  1002 BB
+set.add(new Person(1001,"AA"));
+System.out.println(set);//1001 CC  1002 BB  1001 AA
+Person类重写了hashCode和equals方法

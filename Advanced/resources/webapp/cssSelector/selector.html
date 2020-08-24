@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        /*标签选择器*/
+        h1 {
+            color: red;
+        }
+        /*类选择器*/
+        /*可以多个class归类，
+        也可以跨标签
+        多个标签同一个class*/
+        .h1{
+            color: blue;
+
+        }
+        .h2{
+            color: greenyellow;
+
+        }
+        /*id选择器
+        #id名称{}
+        id唯一，不能向class那样归类
+        */
+        #idselect{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+<h1>
+    this is title
+</h1>
+<!--使用类选择器只让一个h1变色-->
+<h1 class="h1">
+    this is h1 title
+</h1>
+<h1 class="h2">
+    this is h2 title
+</h1>
+<h1 class="h2">
+    this is h2 class
+</h1>
+<h1 id="idselect">
+    this is idselect
+</h1>
+<!--
+id选择器>class选择器>标签选择器
+-->
+<h1 id="idselect2" class="h1">
+    this is idselect
+</h1>
+<p>
+    test
+</p>
+</body>
+</html>

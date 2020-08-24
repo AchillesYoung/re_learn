@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a[id]{
+            background:yellow;
+        }
+        a[id=a2]{
+            background:yellow;
+        }
+        /**
+        *包含
+        ^开头
+        $结尾
+         */
+        a[class*="third"]{
+            background:red;
+        }
+    </style>
+</head>
+<body>
+<p class="demo">
+    <a href="https://www.baidu.com" class="first" id="a1">1</a>
+    <a href="" class="first active" target="_blank" title="test">2</a>
+    <a href="imagas/123.html" class="third item" id="a2">3</a>
+    <a href="imagas/123.png" class="third item">4</a>
+    <a href="imagas/123.jpg" class="third item">5</a>
+    <a href="abc" class="third item">6</a>
+    <a href="/a.pdf" class="third item">7</a>
+    <a href="/abc.pdf" class="third item">8</a>
+    <a href=abc.doc" class="last">9</a>
+</p>
+
+
+</body>
+</html>
