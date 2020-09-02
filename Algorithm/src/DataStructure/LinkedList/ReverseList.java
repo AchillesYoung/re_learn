@@ -11,43 +11,38 @@ import java.util.Stack;
  * copyright @2020 Beijing Morong Information Techology CO.,Ltd.
  */
 public class ReverseList {
-    static ListNode head;
 
-    static {
-        ListNode a = new ListNode('a');
-        ListNode b = new ListNode('b');
-        ListNode c = new ListNode('c');
-        ListNode d = new ListNode('d');
-        ListNode e = new ListNode('e');
-        ListNode f = new ListNode('f');
-
-        a.next = b;
-        b.next = c;
-        c.next = d;
-        d.next = e;
-        e.next = f;
-        head = a;
+    //递归
+    public ListNode reverseListRecur(ListNode head){
+        return reverseListRecur(head, null);
     }
 
+    //先撸递归
+    public ListNode reverseListRecur(ListNode cur,ListNode prev) {
+        //如果递归到结尾了，就把prev返回，然后一路返回，因为递归在return那里，所以最后
+        //结束了就return新的头节点
+        if (cur == null) return prev;
+
+        ListNode next = cur.next;
+        cur.next = prev;
+        //return 一路上传递的就是反转以后的头节点
+        return reverseListRecur(next,cur);
+    }
 
     public static ListNode reverseList(ListNode head) {
-        ListNode pre = null;
+
+
+        ListNode prev = null;
         ListNode cur = head;
-        ListNode next;
+        ListNode next = null;
 
         while (cur != null) {
-
             next = cur.next;
-            cur.next = pre;
-            pre = cur;
+            cur.next = prev;
+            prev = cur;
             cur = next;
-
-//            cur = head.next.next;
-//            head.next.next = head;
-//            head=cur;
         }
-
-        return pre;
+        return prev;
     }
 
     public static void traverse4Reverse(ListNode head) {
@@ -64,8 +59,11 @@ public class ReverseList {
 
     public static ListNode reverseListStack(ListNode head) {
 
-        Stack<ListNode> stack = new Stack();
 
+        if(head == null){
+            return null;
+        }
+        Stack<ListNode> stack = new Stack();
         while (head != null) {
             stack.push(head);
             head = head.next;
@@ -108,6 +106,25 @@ public class ReverseList {
         }
 
         return head;
+    }
+
+
+    static ListNode head;
+
+    static {
+        ListNode a = new ListNode('a');
+        ListNode b = new ListNode('b');
+        ListNode c = new ListNode('c');
+        ListNode d = new ListNode('d');
+        ListNode e = new ListNode('e');
+        ListNode f = new ListNode('f');
+
+        a.next = b;
+        b.next = c;
+        c.next = d;
+        d.next = e;
+        e.next = f;
+        head = a;
     }
 
     public static void main(String[] args) {
