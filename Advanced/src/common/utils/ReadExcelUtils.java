@@ -25,7 +25,7 @@ public class ReadExcelUtils {
     @Test
     public void read() {
         ReadExcelUtils obj = new ReadExcelUtils();
-        File file = new File("UAT.xls");
+        File file = new File("事件分析元数据模板.xls");
         obj.readExcel(file);
 
     }
@@ -40,7 +40,7 @@ public class ReadExcelUtils {
             System.out.println("sheet_size:" + sheet_size);
             for (int index = 0; index < sheet_size; index++) {
 
-                if (index != 12) {
+                if (index == 0) {
                     continue;
                 }
                 //每个页签创建一个Sheet对象
@@ -48,9 +48,9 @@ public class ReadExcelUtils {
                 // sheet.getRows()返回该页的总行数
                 System.out.println("rows:" + sheet.getRows() + "columns:" + sheet.getColumns());
                 for (int i = 0; i < sheet.getRows(); i++) {
-//                    if (i == 0) {
-//                        continue;
-//                    }
+                    if (i == 0) {
+                        continue;
+                    }
                     // sheet.getColumns()返回该页的总列数
 //                    System.out.println("columns in row--->:" + i );
                     StringBuffer sb = new StringBuffer("(");
