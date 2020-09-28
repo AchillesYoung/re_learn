@@ -31,12 +31,12 @@
 			<Interval closure="closedClosed" leftMargin="0"
 				rightMargin="999999" />
 		</DataField>
-		<DataField name="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION "
+		<DataField name="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION"
 			dataType="integer" optype="continuous">
 			<Interval closure="closedClosed" leftMargin="0"
-				rightMargin="999999" />
+				rightMargin="999999999" />
 		</DataField>
-		<DataField name="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 "
+		<DataField name="SFCMSH_DAYS_AIRTIME_LESS_THAN_2"
 			dataType="integer" optype="continuous">
 			<Interval closure="closedClosed" leftMargin="0"
 				rightMargin="999999999" />
@@ -78,10 +78,10 @@
 			<Interval closure="closedClosed" leftMargin="0"
 				rightMargin="999999" />
 		</DataField>
-		<DataField name="NEXTPMML" dataType="string"
-			optype="categorical" />
 		<DataField name="TOTAL_CUSTOMER_SCORE" dataType="integer"
 			optype="continuous" />
+		<DataField name="NEXTPMML" dataType="string"
+			optype="categorical" />
 		<DataField name="mpesaPaybillNumber" dataType="integer"
 			optype="continuous" />
 		<DataField name="mpesaPaybillAcceptors" dataType="string"
@@ -143,7 +143,7 @@
 	</DataDictionary>
 	<MiningModel functionName="classification">
 		<MiningSchema>
-			<MiningField name="SFCMSH_MPESA_REGISTRATION_DATE"
+			<MiningField name="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION"
 				usageType="active" invalidValueTreatment="asMissing" />
 			<MiningField name="SFCMSH_MPESA_PAY_BILL_ACCEPTORS"
 				usageType="active" invalidValueTreatment="asMissing" />
@@ -167,9 +167,9 @@
 				usageType="active" invalidValueTreatment="asMissing" />
 			<MiningField name="SFCMSH_MPESA_SEND_ACCEPTORS"
 				usageType="active" invalidValueTreatment="asMissing" />
-			<MiningField name="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION "
+			<MiningField name="SFCMSH_DAYS_AIRTIME_LESS_THAN_2"
 				usageType="active" invalidValueTreatment="asMissing" />
-			<MiningField name="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 "
+			<MiningField name="SFCMSH_MPESA_REGISTRATION_DATE"
 				usageType="active" invalidValueTreatment="asMissing" />
 			<MiningField name="SFCMSH_DAYS_FROM_DATA_EXTRACTION"
 				usageType="active" invalidValueTreatment="asMissing" />
@@ -220,7 +220,7 @@
 					reasonCodeAlgorithm="pointsBelow" initialScore="0"
 					baselineMethod="other">
 					<MiningSchema>
-						<MiningField name="SFCMSH_MPESA_REGISTRATION_DATE"
+						<MiningField name="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION"
 							usageType="active" invalidValueTreatment="asMissing" />
 						<MiningField name="SFCMSH_MPESA_PAY_BILL_ACCEPTORS"
 							usageType="active" invalidValueTreatment="asMissing" />
@@ -238,13 +238,13 @@
 							usageType="active" invalidValueTreatment="asMissing" />
 						<MiningField name="SFCMSH_MPESA_CREDIT_AMOUNT"
 							usageType="active" invalidValueTreatment="asMissing" />
+						<MiningField name="SFCMSH_MPESA_REGISTRATION_DATE"
+							usageType="active" invalidValueTreatment="asMissing" />
 						<MiningField name="BETA_DAYS_FROM_LAST_ACTIVITY"
 							usageType="active" invalidValueTreatment="asMissing" />
 						<MiningField name="NUMBER_OF_ACTIVITY_DAYS"
 							usageType="active" invalidValueTreatment="asMissing" />
 						<MiningField name="OKOA_JAHAZI_NUM_OF_LOANS"
-							usageType="active" invalidValueTreatment="asMissing" />
-						<MiningField name="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION "
 							usageType="active" invalidValueTreatment="asMissing" />
 						<MiningField name="BETA_MPESA_DEPOSIT_AMOUNT"
 							usageType="active" invalidValueTreatment="asMissing" />
@@ -254,7 +254,7 @@
 							usageType="active" invalidValueTreatment="asMissing" />
 						<MiningField name="BETA_MPESA_WITHDRAW_AMOUNT"
 							usageType="active" invalidValueTreatment="asMissing" />
-						<MiningField name="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 "
+						<MiningField name="SFCMSH_DAYS_AIRTIME_LESS_THAN_2"
 							usageType="active" invalidValueTreatment="asMissing" />
 						<MiningField name="SFCMSH_MPESA_REGISTERED_MONTHS"
 							usageType="active" invalidValueTreatment="asMissing" />
@@ -560,128 +560,128 @@
 							</Attribute>
 						</Characteristic>
 						<Characteristic
-							name="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION Score" reasonCode="RC6"
+							name="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATIONScore" reasonCode="RC6"
 							baselineScore="18">
 							<Attribute partialScore="0">
 								<SimplePredicate
-									field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="isMissing" />
+									field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="isMissing" />
 							</Attribute>
 							<Attribute partialScore="-10">
 								<SimplePredicate
-									field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="lessOrEqual"
+									field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="lessOrEqual"
 									value="800" />
 							</Attribute>
 							<Attribute partialScore="-7">
 								<CompoundPredicate booleanOperator="and">
 									<SimplePredicate
-										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="greaterThan"
+										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="greaterThan"
 										value="800" />
 									<SimplePredicate
-										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="lessOrEqual"
+										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="lessOrEqual"
 										value="1400" />
 								</CompoundPredicate>
 							</Attribute>
 							<Attribute partialScore="0">
 								<CompoundPredicate booleanOperator="and">
 									<SimplePredicate
-										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="greaterThan"
+										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="greaterThan"
 										value="1400" />
 									<SimplePredicate
-										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="lessOrEqual"
+										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="lessOrEqual"
 										value="2600" />
 								</CompoundPredicate>
 							</Attribute>
 							<Attribute partialScore="5">
 								<CompoundPredicate booleanOperator="and">
 									<SimplePredicate
-										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="greaterThan"
+										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="greaterThan"
 										value="2600" />
 									<SimplePredicate
-										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="lessOrEqual"
+										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="lessOrEqual"
 										value="3750" />
 								</CompoundPredicate>
 							</Attribute>
 							<Attribute partialScore="12">
 								<CompoundPredicate booleanOperator="and">
 									<SimplePredicate
-										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="greaterThan"
+										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="greaterThan"
 										value="3750" />
 									<SimplePredicate
-										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="lessOrEqual"
+										field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="lessOrEqual"
 										value="4000" />
 								</CompoundPredicate>
 							</Attribute>
 							<Attribute partialScore="16">
 								<SimplePredicate
-									field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " operator="greaterThan"
+									field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" operator="greaterThan"
 									value="4000" />
 							</Attribute>
 						</Characteristic>
 						<Characteristic
-							name="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 Score" reasonCode="RC9"
+							name="SFCMSH_DAYS_AIRTIME_LESS_THAN_2Score" reasonCode="RC9"
 							baselineScore="18">
 							<Attribute partialScore="0">
 								<SimplePredicate
-									field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="isMissing" />
+									field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="isMissing" />
 							</Attribute>
 							<Attribute partialScore="26">
 								<SimplePredicate
-									field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="lessOrEqual"
+									field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="lessOrEqual"
 									value="20" />
 							</Attribute>
 							<Attribute partialScore="15">
 								<CompoundPredicate booleanOperator="and">
 									<SimplePredicate
-										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="greaterThan"
+										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="greaterThan"
 										value="20" />
 									<SimplePredicate
-										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="lessOrEqual"
+										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="lessOrEqual"
 										value="40" />
 								</CompoundPredicate>
 							</Attribute>
 							<Attribute partialScore="8">
 								<CompoundPredicate booleanOperator="and">
 									<SimplePredicate
-										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="greaterThan"
+										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="greaterThan"
 										value="40" />
 									<SimplePredicate
-										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="lessOrEqual"
+										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="lessOrEqual"
 										value="60" />
 								</CompoundPredicate>
 							</Attribute>
 							<Attribute partialScore="0">
 								<CompoundPredicate booleanOperator="and">
 									<SimplePredicate
-										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="greaterThan"
+										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="greaterThan"
 										value="60" />
 									<SimplePredicate
-										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="lessOrEqual"
+										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="lessOrEqual"
 										value="100" />
 								</CompoundPredicate>
 							</Attribute>
 							<Attribute partialScore="-5">
 								<CompoundPredicate booleanOperator="and">
 									<SimplePredicate
-										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="greaterThan"
+										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="greaterThan"
 										value="100" />
 									<SimplePredicate
-										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="lessOrEqual"
+										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="lessOrEqual"
 										value="115" />
 								</CompoundPredicate>
 							</Attribute>
 							<Attribute partialScore="-12">
 								<CompoundPredicate booleanOperator="and">
 									<SimplePredicate
-										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="greaterThan"
+										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="greaterThan"
 										value="115" />
 									<SimplePredicate
-										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="lessOrEqual"
+										field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="lessOrEqual"
 										value="135" />
 								</CompoundPredicate>
 							</Attribute>
 							<Attribute partialScore="-15">
 								<SimplePredicate
-									field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " operator="greaterThan"
+									field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" operator="greaterThan"
 									value="135" />
 							</Attribute>
 						</Characteristic>
@@ -1133,12 +1133,20 @@
 					</Output>
 					<Node score="0.00">
 						<True />
-						<Node score="3000.00">
+						<Node score="6000.00">
 							<CompoundPredicate booleanOperator="and">
 								<SimplePredicate field="INCOME_CATEGORY"
 									operator="equal" value="M1" />
 								<SimplePredicate field="RISK_GROUP"
 									operator="equal" value="C1" />
+							</CompoundPredicate>
+						</Node>
+						<Node score="4000.00">
+							<CompoundPredicate booleanOperator="and">
+								<SimplePredicate field="INCOME_CATEGORY"
+									operator="equal" value="M1" />
+								<SimplePredicate field="RISK_GROUP"
+									operator="equal" value="C2" />
 							</CompoundPredicate>
 						</Node>
 						<Node score="2000.00">
@@ -1146,14 +1154,6 @@
 								<SimplePredicate field="INCOME_CATEGORY"
 									operator="equal" value="M1" />
 								<SimplePredicate field="RISK_GROUP"
-									operator="equal" value="C2" />
-							</CompoundPredicate>
-						</Node>
-						<Node score="0.00">
-							<CompoundPredicate booleanOperator="and">
-								<SimplePredicate field="INCOME_CATEGORY"
-									operator="equal" value="M1" />
-								<SimplePredicate field="RISK_GROUP"
 									operator="equal" value="C3" />
 							</CompoundPredicate>
 						</Node>
@@ -1171,6 +1171,22 @@
 									operator="equal" value="M1" />
 								<SimplePredicate field="RISK_GROUP"
 									operator="equal" value="C5" />
+							</CompoundPredicate>
+						</Node>
+						<Node score="4000.00">
+							<CompoundPredicate booleanOperator="and">
+								<SimplePredicate field="INCOME_CATEGORY"
+									operator="equal" value="M2" />
+								<SimplePredicate field="RISK_GROUP"
+									operator="equal" value="C1" />
+							</CompoundPredicate>
+						</Node>
+						<Node score="2500.00">
+							<CompoundPredicate booleanOperator="and">
+								<SimplePredicate field="INCOME_CATEGORY"
+									operator="equal" value="M2" />
+								<SimplePredicate field="RISK_GROUP"
+									operator="equal" value="C2" />
 							</CompoundPredicate>
 						</Node>
 						<Node score="2000.00">
@@ -1178,22 +1194,6 @@
 								<SimplePredicate field="INCOME_CATEGORY"
 									operator="equal" value="M2" />
 								<SimplePredicate field="RISK_GROUP"
-									operator="equal" value="C1" />
-							</CompoundPredicate>
-						</Node>
-						<Node score="0.00">
-							<CompoundPredicate booleanOperator="and">
-								<SimplePredicate field="INCOME_CATEGORY"
-									operator="equal" value="M2" />
-								<SimplePredicate field="RISK_GROUP"
-									operator="equal" value="C2" />
-							</CompoundPredicate>
-						</Node>
-						<Node score="0.00">
-							<CompoundPredicate booleanOperator="and">
-								<SimplePredicate field="INCOME_CATEGORY"
-									operator="equal" value="M2" />
-								<SimplePredicate field="RISK_GROUP"
 									operator="equal" value="C3" />
 							</CompoundPredicate>
 						</Node>
@@ -1213,7 +1213,7 @@
 									operator="equal" value="C5" />
 							</CompoundPredicate>
 						</Node>
-						<Node score="0.00">
+						<Node score="2500.00">
 							<CompoundPredicate booleanOperator="and">
 								<SimplePredicate field="INCOME_CATEGORY"
 									operator="equal" value="M3" />
@@ -1221,7 +1221,7 @@
 									operator="equal" value="C1" />
 							</CompoundPredicate>
 						</Node>
-						<Node score="0.00">
+						<Node score="2000.00">
 							<CompoundPredicate booleanOperator="and">
 								<SimplePredicate field="INCOME_CATEGORY"
 									operator="equal" value="M3" />
@@ -1253,7 +1253,7 @@
 									operator="equal" value="C5" />
 							</CompoundPredicate>
 						</Node>
-						<Node score="0.00">
+						<Node score="2000.00">
 							<CompoundPredicate booleanOperator="and">
 								<SimplePredicate field="INCOME_CATEGORY"
 									operator="equal" value="M4" />
@@ -1408,9 +1408,9 @@
 							usageType="active" />
 						<MiningField name="SFCMSH_MPESA_REGISTERED_MONTHS"
 							usageType="active" />
-						<MiningField name="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION "
+						<MiningField name="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION"
 							usageType="active" />
-						<MiningField name="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 "
+						<MiningField name="SFCMSH_DAYS_AIRTIME_LESS_THAN_2"
 							usageType="active" />
 						<MiningField name="MR_CUSTOMER_AGE" usageType="active" />
 						<MiningField name="OKOA_JAHAZI_NUM_OF_LOANS"
@@ -1492,7 +1492,7 @@
 						</OutputField>
 						<OutputField name="daysAirtimeLessThan2"
 							optype="continuous" dataType="integer" feature="transformedValue">
-							<FieldRef field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2 " />
+							<FieldRef field="SFCMSH_DAYS_AIRTIME_LESS_THAN_2" />
 						</OutputField>
 						<OutputField name="okoaJahaziNumOfLoans"
 							optype="continuous" dataType="integer" feature="transformedValue">
@@ -1540,7 +1540,7 @@
 						</OutputField>
 						<OutputField name="timeSinceRegistration"
 							optype="continuous" dataType="integer" feature="transformedValue">
-							<FieldRef field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION " />
+							<FieldRef field="SFCMSH_DAYS_SINCE_NETWORK_REGISTRATION" />
 						</OutputField>
 					</Output>
 					<Node score="NOT_EXCLUDED">
@@ -1559,7 +1559,9 @@
 									value="90" />
 							</CompoundPredicate>
 						</Node>
+
 					</Node>
+
 				</TreeModel>
 			</Segment>
 		</Segmentation>
