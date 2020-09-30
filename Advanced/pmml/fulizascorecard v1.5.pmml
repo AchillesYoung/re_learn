@@ -1,20 +1,3 @@
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cred="http://cba.co.ke/Services/CreditScore">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <cred:ServiceRequest>
-         <cred:Header>
-            <cred:RequestRefID>123456</cred:RequestRefID>
-            <cred:Timestamp>2018-10-10T10:10:10</cred:Timestamp>
-            <cred:OperationName>PerformPrediction</cred:OperationName>
-            <cred:OperationVersion>1.0</cred:OperationVersion>
-            <cred:SourceSystem>CRM</cred:SourceSystem>
-            <cred:Credentials>
-               <cred:UserName>scorer</cred:UserName>
-               <cred:Password>scorer123</cred:Password>
-            </cred:Credentials>
-         </cred:Header>
-         <cred:DataRequest>
-            <cred:Model><![CDATA[
 <PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
    <Header copyright="DMG.org" />
    <DataDictionary>
@@ -82,7 +65,7 @@
          <Value value="YES" />
          <Value value="NO" />
       </DataField>
-	  <DataField name="NEXTPMML" dataType="string" optype="categorical" />	
+	  <DataField name="NEXTPMML" dataType="string" optype="categorical" />
       <DataField name="mpesaTransferFromBankAmount6m" dataType="double" optype="continuous" />
       <DataField name="mpesaDepositAmount6m" dataType="double" optype="continuous" />
       <DataField name="mpesaReceiveAmount6m" dataType="double" optype="continuous" />
@@ -1531,103 +1514,4 @@
          </Segment>
       </Segmentation>
    </MiningModel>
-</PMML>]]></cred:Model>
-            <cred:PredictionVariables><![CDATA[<customervariables>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M</name>
-      <value>13</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M</name>
-      <value>0</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_RECEIVE_AMOUNT_6M</name>
-      <value>78170</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_DEPOSIT_NUM_6M</name>
-      <value>187</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_RECEIVE_NUM_6M</name>
-      <value>15</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_DEPOSIT_AMOUNT_6M</name>
-      <value>2499430</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M</name>
-      <value>0</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_DEPOSIT_NUM_3M</name>
-      <value>116</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M</name>
-      <value>3</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_PAY_BILL_AMOUNT_3M</name>
-      <value>2223714</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M</name>
-      <value>3</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_SEND_NUM_6M</name>
-      <value>94</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M</name>
-      <value>1</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_MPSA_WITHDRAW_AMNT_6M</name>
-      <value>2450</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_NETWORK_AIRTIME_UTLZTN_1M</name>
-      <value>9772.6087</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6</name>
-      <value>32228.9105</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_NO_TOTAL_CALLS_INBOUND_3M</name>
-      <value>75</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M</name>
-      <value>70</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_AGE_ON_MPESA</name>
-      <value>23</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>SFCFUL_DATA_AGE_DAYS</name>
-      <value>0</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>MR_MSHWARI_DEFAULT</name>
-      <value>NO</value>
-   </CBAVariable>
-   <CBAVariable>
-      <name>MSISDN</name>
-      <value/>
-   </CBAVariable>
-   <CBAVariable>
-      <name>REFERENCE_ID</name>
-      <value>PRE_AG_20200803_10206df15ef76034</value>
-   </CBAVariable>
-</customervariables>]]></cred:PredictionVariables>
-         </cred:DataRequest>
-      </cred:ServiceRequest>
-   </soapenv:Body>
-</soapenv:Envelope>
-
+</PMML>
