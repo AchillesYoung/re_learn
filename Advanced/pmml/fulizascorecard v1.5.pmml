@@ -1,0 +1,1633 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cred="http://cba.co.ke/Services/CreditScore">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cred:ServiceRequest>
+         <cred:Header>
+            <cred:RequestRefID>123456</cred:RequestRefID>
+            <cred:Timestamp>2018-10-10T10:10:10</cred:Timestamp>
+            <cred:OperationName>PerformPrediction</cred:OperationName>
+            <cred:OperationVersion>1.0</cred:OperationVersion>
+            <cred:SourceSystem>CRM</cred:SourceSystem>
+            <cred:Credentials>
+               <cred:UserName>scorer</cred:UserName>
+               <cred:Password>scorer123</cred:Password>
+            </cred:Credentials>
+         </cred:Header>
+         <cred:DataRequest>
+            <cred:Model><![CDATA[
+<PMML xmlns="http://www.dmg.org/PMML-4_2" version="4.2">
+   <Header copyright="DMG.org" />
+   <DataDictionary>
+      <DataField name="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" dataType="double" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_DEPOSIT_AMOUNT_6M" dataType="double" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" dataType="double" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_DEPOSIT_NUM_6M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_RECEIVE_NUM_6M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_DEPOSIT_NUM_3M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" dataType="double" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_SEND_NUM_6M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_MPSA_WITHDRAW_AMNT_6M" dataType="double" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999999" />
+      </DataField>
+      <DataField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" dataType="double" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999999" />
+      </DataField>
+      <DataField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" dataType="double" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999999" />
+      </DataField>
+      <DataField name="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_AGE_ON_MPESA" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="SFCFUL_DATA_AGE_DAYS" dataType="integer" optype="continuous">
+         <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
+      </DataField>
+      <DataField name="MR_MSHWARI_DEFAULT" optype="categorical" dataType="string">
+         <Value value="YES" />
+         <Value value="NO" />
+      </DataField>
+	  <DataField name="NEXTPMML" dataType="string" optype="categorical" />	
+      <DataField name="mpesaTransferFromBankAmount6m" dataType="double" optype="continuous" />
+      <DataField name="mpesaDepositAmount6m" dataType="double" optype="continuous" />
+      <DataField name="mpesaReceiveAmount6m" dataType="double" optype="continuous" />
+      <DataField name="mpesaTransferFromBankNumber6m" dataType="integer" optype="continuous" />
+      <DataField name="mpesaDepositNumber6m" dataType="integer" optype="continuous" />
+      <DataField name="mpesaReceiveNumber6m" dataType="integer" optype="continuous" />
+      <DataField name="mpesaDepositAcceptors3m" dataType="integer" optype="continuous" />
+      <DataField name="mpesaDepositNumber3m" dataType="integer" optype="continuous" />
+      <DataField name="mpesaPayBillAcceptors3m" dataType="integer" optype="continuous" />
+      <DataField name="mpesaPayBillAmount3m" dataType="double" optype="continuous" />
+      <DataField name="mpesaReceivedAcceptors3m" dataType="integer" optype="continuous" />
+      <DataField name="mpesaSendNumber6m" dataType="integer" optype="continuous" />
+      <DataField name="mpesaWithdrawAcceptors3m" dataType="integer" optype="continuous" />
+      <DataField name="mpesaWithdrawAmount6m" dataType="double" optype="continuous" />
+      <DataField name="networkAirtimeUtilization1m" dataType="double" optype="continuous" />
+      <DataField name="noTotalCallsInbound3m" dataType="integer" optype="continuous" />
+      <DataField name="numberOfActivityDays3m" dataType="integer" optype="continuous" />
+      <DataField name="currentInflow" dataType="double" optype="continuous" />
+      <DataField name="currentInflowCount" dataType="integer" optype="continuous" />
+      <DataField name="currentInflowExcl" dataType="double" optype="continuous" />
+      <DataField name="mpesaTurnover" dataType="double" optype="continuous" />
+      <DataField name="mpesaTurnoverCount" dataType="integer" optype="continuous" />
+      <DataField name="mpesaTurnoverExcl" dataType="double" optype="continuous" />
+      <DataField name="TOTAL_CUSTOMER_SCORE" dataType="integer" optype="continuous" />
+      <DataField name="custScore" dataType="integer" optype="continuous" />
+      <DataField name="custExcludedBy" dataType="string" optype="categorical" />
+      <DataField name="custLoanLimit" dataType="double" optype="continuous" />
+      <DataField name="netRegMonths" dataType="integer" optype="continuous" />
+      <DataField name="dataAge" dataType="integer" optype="continuous" />
+      <DataField name="mshwariDefault" dataType="string" optype="categorical" />
+      <DataField name="avgAirtimeTurnover6MExcl" dataType="double" optype="continuous" />
+      <DataField name="incomeCat" dataType="string" optype="categorical" />
+      <DataField name="scoreCat" dataType="string" optype="categorical" />
+      <DataField name="RISK_GROUP" optype="categorical" dataType="string">
+         <Value value="B1" />
+         <Value value="B2" />
+         <Value value="B3" />
+         <Value value="B4" />
+         <Value value="B5" />
+      </DataField>
+      <DataField name="INCOME_CATEGORY" optype="categorical" dataType="string">
+         <Value value="M1" />
+         <Value value="M2" />
+         <Value value="M3" />
+         <Value value="M4" />
+         <Value value="M5" />
+         <Value value="M6" />
+         <Value value="M7" />
+      </DataField>
+      <DataField name="LOAN_LIMIT" dataType="double" optype="continuous" />
+   </DataDictionary>
+   <MiningModel functionName="classification">
+      <MiningSchema>
+         <MiningField name="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_DEPOSIT_AMOUNT_6M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_DEPOSIT_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_RECEIVE_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_DEPOSIT_NUM_3M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_SEND_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPSA_WITHDRAW_AMNT_6M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_AGE_ON_MPESA" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_DATA_AGE_DAYS" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="MR_MSHWARI_DEFAULT" usageType="active" invalidValueTreatment="asMissing" />
+		 <MiningField name="NEXTPMML" usageType="predicted" />
+         <MiningField name="currentInflowCount" usageType="predicted" />
+         <MiningField name="currentInflow" usageType="predicted" />
+         <MiningField name="currentInflowExcl" usageType="predicted" />
+         <MiningField name="custScore" usageType="predicted" />
+         <MiningField name="custExcludedBy" usageType="predicted" />
+         <MiningField name="custLoanLimit" usageType="predicted" />
+         <MiningField name="netRegMonths" usageType="predicted" />
+         <MiningField name="dataAge" usageType="predicted" />
+         <MiningField name="mshwariDefault" usageType="predicted" />
+         <MiningField name="avgAirtimeTurnover6MExcl" usageType="predicted" />
+         <MiningField name="incomeCat" usageType="predicted" />
+         <MiningField name="scoreCat" usageType="predicted" />
+         <MiningField name="mpesaTransferFromBankAmount6m" usageType="predicted" />
+         <MiningField name="mpesaDepositAmount6m" usageType="predicted" />
+         <MiningField name="mpesaReceiveAmount6m" usageType="predicted" />
+         <MiningField name="mpesaTransferFromBankNumber6m" usageType="predicted" />
+         <MiningField name="mpesaDepositNumber6m" usageType="predicted" />
+         <MiningField name="mpesaReceiveNumber6m" usageType="predicted" />
+         <MiningField name="mpesaDepositAcceptors3m" usageType="predicted" />
+         <MiningField name="mpesaDepositNumber3m" usageType="predicted" />
+         <MiningField name="mpesaPayBillAcceptors3m" usageType="predicted" />
+         <MiningField name="mpesaPayBillAmount3m" usageType="predicted" />
+         <MiningField name="mpesaReceivedAcceptors3m" usageType="predicted" />
+         <MiningField name="mpesaSendNumber6m" usageType="predicted" />
+         <MiningField name="mpesaWithdrawAcceptors3m" usageType="predicted" />
+         <MiningField name="mpesaWithdrawAmount6m" usageType="predicted" />
+         <MiningField name="networkAirtimeUtilization1m" usageType="predicted" />
+         <MiningField name="noTotalCallsInbound3m" usageType="predicted" />
+         <MiningField name="numberOfActivityDays3m" usageType="predicted" />
+      </MiningSchema>
+      <Segmentation multipleModelMethod="modelChain">
+         <Segment id="1">
+            <True />
+            <Scorecard modelName="customerTotalScoreModel" functionName="regression" useReasonCodes="false" reasonCodeAlgorithm="pointsBelow" initialScore="0" baselineMethod="other">
+               <MiningSchema>
+                  <MiningField name="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_DEPOSIT_AMOUNT_6M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_DEPOSIT_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_RECEIVE_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_DEPOSIT_NUM_3M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_SEND_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPSA_WITHDRAW_AMNT_6M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" usageType="active" invalidValueTreatment="asMissing" />
+               </MiningSchema>
+               <Output>
+                  <OutputField name="TOTAL_CUSTOMER_SCORE" optype="continuous" dataType="integer" feature="predictedValue" />
+                  <OutputField name="mpesaTurnoverExcl" optype="continuous" dataType="double" feature="transformedValue">
+                     <Apply function="sum">
+                        <FieldRef field="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" />
+                        <FieldRef field="SFCFUL_MPSA_DEPOSIT_AMOUNT_6M" />
+                        <FieldRef field="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" />
+                     </Apply>
+                  </OutputField>
+                  <OutputField name="mpesaTurnoverCount" optype="continuous" dataType="integer" feature="transformedValue">
+                     <Apply function="if">
+                        <Apply function="equal">
+                           <Apply function="sum">
+                              <FieldRef field="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" />
+                              <FieldRef field="SFCFUL_MPSA_DEPOSIT_NUM_6M" />
+                              <FieldRef field="SFCFUL_MPSA_RECEIVE_NUM_6M" />
+                           </Apply>
+                           <Constant dataType="integer">0</Constant>
+                        </Apply>
+                        <Constant dataType="integer">1</Constant>
+                        <Apply function="sum">
+                           <FieldRef field="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" />
+                           <FieldRef field="SFCFUL_MPSA_DEPOSIT_NUM_6M" />
+                           <FieldRef field="SFCFUL_MPSA_RECEIVE_NUM_6M" />
+                        </Apply>
+                     </Apply>
+                  </OutputField>
+               </Output>
+               <Characteristics>
+                  <Characteristic name="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3MScore" reasonCode="RC1" baselineScore="18">
+                     <Attribute partialScore="10">
+                        <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="8">
+                        <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" operator="lessThan" value="2" />
+                     </Attribute>
+                     <Attribute partialScore="9">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" operator="greaterOrEqual" value="2" />
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" operator="lessThan" value="4" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="10">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" operator="greaterOrEqual" value="4" />
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" operator="lessThan" value="7" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="11">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" operator="greaterOrEqual" value="7" />
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" operator="lessThan" value="11" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="12">
+                        <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" operator="greaterOrEqual" value="11" />
+                     </Attribute>
+                  </Characteristic>
+                  <Characteristic name="SFCFUL_MPSA_DEPOSIT_NUM_3MScore" reasonCode="RC2" baselineScore="18">
+                     <Attribute partialScore="12">
+                        <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_NUM_3M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="-2">
+                        <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_NUM_3M" operator="lessThan" value="3" />
+                     </Attribute>
+                     <Attribute partialScore="3">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_NUM_3M" operator="greaterOrEqual" value="3" />
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_NUM_3M" operator="lessThan" value="7" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="12">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_NUM_3M" operator="greaterOrEqual" value="7" />
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_NUM_3M" operator="lessThan" value="16" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="22">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_NUM_3M" operator="greaterOrEqual" value="16" />
+                           <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_NUM_3M" operator="lessThan" value="31" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="33">
+                        <SimplePredicate field="SFCFUL_MPSA_DEPOSIT_NUM_3M" operator="greaterOrEqual" value="31" />
+                     </Attribute>
+                  </Characteristic>
+                  <Characteristic name="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3MScore" reasonCode="RC3" baselineScore="18">
+                     <Attribute partialScore="16">
+                        <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="6">
+                        <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" operator="lessThan" value="1" />
+                     </Attribute>
+                     <Attribute partialScore="9">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" operator="greaterOrEqual" value="1" />
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" operator="lessThan" value="2" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="12">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" operator="greaterOrEqual" value="2" />
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" operator="lessThan" value="3" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="16">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" operator="greaterOrEqual" value="3" />
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" operator="lessThan" value="5" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="22">
+                        <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" operator="greaterOrEqual" value="5" />
+                     </Attribute>
+                  </Characteristic>
+                  <Characteristic name="SFCFUL_MPSA_PAY_BILL_AMOUNT_3MScore" reasonCode="RC4" baselineScore="18">
+                     <Attribute partialScore="5">
+                        <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="5">
+                        <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" operator="lessThan" value="100" />
+                     </Attribute>
+                     <Attribute partialScore="9">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" operator="greaterOrEqual" value="100" />
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" operator="lessThan" value="1050" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="13">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" operator="greaterOrEqual" value="1050" />
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" operator="lessThan" value="4294" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="18">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" operator="greaterOrEqual" value="4294" />
+                           <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" operator="lessThan" value="18563" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="24">
+                        <SimplePredicate field="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" operator="greaterOrEqual" value="18563" />
+                     </Attribute>
+                  </Characteristic>
+                  <Characteristic name="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3MScore" reasonCode="RC5" baselineScore="18">
+                     <Attribute partialScore="6">
+                        <SimplePredicate field="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="1">
+                        <SimplePredicate field="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" operator="lessThan" value="2" />
+                     </Attribute>
+                     <Attribute partialScore="3">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" operator="greaterOrEqual" value="2" />
+                           <SimplePredicate field="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" operator="lessThan" value="5" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="4">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" operator="greaterOrEqual" value="5" />
+                           <SimplePredicate field="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" operator="lessThan" value="8" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="6">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" operator="greaterOrEqual" value="8" />
+                           <SimplePredicate field="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" operator="lessThan" value="14" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="9">
+                        <SimplePredicate field="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" operator="greaterOrEqual" value="14" />
+                     </Attribute>
+                  </Characteristic>
+                  <Characteristic name="SFCFUL_MPSA_SEND_NUM_6MScore" reasonCode="RC6" baselineScore="18">
+                     <Attribute partialScore="18">
+                        <SimplePredicate field="SFCFUL_MPSA_SEND_NUM_6M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="6">
+                        <SimplePredicate field="SFCFUL_MPSA_SEND_NUM_6M" operator="lessThan" value="7" />
+                     </Attribute>
+                     <Attribute partialScore="9">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_SEND_NUM_6M" operator="greaterOrEqual" value="7" />
+                           <SimplePredicate field="SFCFUL_MPSA_SEND_NUM_6M" operator="lessThan" value="15" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="11">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_SEND_NUM_6M" operator="greaterOrEqual" value="15" />
+                           <SimplePredicate field="SFCFUL_MPSA_SEND_NUM_6M" operator="lessThan" value="28" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="13">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_SEND_NUM_6M" operator="greaterOrEqual" value="28" />
+                           <SimplePredicate field="SFCFUL_MPSA_SEND_NUM_6M" operator="lessThan" value="52" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="18">
+                        <SimplePredicate field="SFCFUL_MPSA_SEND_NUM_6M" operator="greaterOrEqual" value="52" />
+                     </Attribute>
+                  </Characteristic>
+                  <Characteristic name="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3MScore" reasonCode="RC7" baselineScore="18">
+                     <Attribute partialScore="11">
+                        <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="6">
+                        <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" operator="lessThan" value="2" />
+                     </Attribute>
+                     <Attribute partialScore="9">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" operator="greaterOrEqual" value="2" />
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" operator="lessThan" value="4" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="11">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" operator="greaterOrEqual" value="4" />
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" operator="lessThan" value="8" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="13">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" operator="greaterOrEqual" value="8" />
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" operator="lessThan" value="14" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="17">
+                        <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" operator="greaterOrEqual" value="14" />
+                     </Attribute>
+                  </Characteristic>
+                  <Characteristic name="SFCFUL_MPSA_WITHDRAW_AMNT_6MScore" reasonCode="RC8" baselineScore="18">
+                     <Attribute partialScore="15">
+                        <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="1">
+                        <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" operator="lessThan" value="8550" />
+                     </Attribute>
+                     <Attribute partialScore="6">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" operator="greaterOrEqual" value="8550" />
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" operator="lessThan" value="21100" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="10">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" operator="greaterOrEqual" value="21100" />
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" operator="lessThan" value="42374" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="15">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" operator="greaterOrEqual" value="42374" />
+                           <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" operator="lessThan" value="108070" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="24">
+                        <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" operator="greaterOrEqual" value="108070" />
+                     </Attribute>
+                  </Characteristic>
+                  <Characteristic name="SFCFUL_NETWORK_AIRTIME_UTLZTN_1MScore" reasonCode="RC9" baselineScore="18">
+                     <Attribute partialScore="12">
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="9">
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="lessThan" value="163.4" />
+                     </Attribute>
+                     <Attribute partialScore="10">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="greaterOrEqual" value="163.4" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="lessThan" value="372.37" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="11">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="greaterOrEqual" value="372.37" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="lessThan" value="689.82" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="12">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="greaterOrEqual" value="689.82" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="lessThan" value="1566.47" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="14">
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="greaterOrEqual" value="1566.47" />
+                     </Attribute>
+                  </Characteristic>
+                  <Characteristic name="SFCFUL_NO_TOTAL_CALLS_INBOUND_3MScore" reasonCode="RC10" baselineScore="18">
+                     <Attribute partialScore="12">
+                        <SimplePredicate field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="8">
+                        <SimplePredicate field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" operator="lessThan" value="374" />
+                     </Attribute>
+                     <Attribute partialScore="10">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" operator="greaterOrEqual" value="374" />
+                           <SimplePredicate field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" operator="lessThan" value="719" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="12">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" operator="greaterOrEqual" value="719" />
+                           <SimplePredicate field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" operator="lessThan" value="1175" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="14">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" operator="greaterOrEqual" value="1175" />
+                           <SimplePredicate field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" operator="lessThan" value="1918" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="17">
+                        <SimplePredicate field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" operator="greaterOrEqual" value="1918" />
+                     </Attribute>
+                  </Characteristic>
+                  <Characteristic name="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3MScore" reasonCode="RC11" baselineScore="18">
+                     <Attribute partialScore="15">
+                        <SimplePredicate field="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" operator="isMissing" />
+                     </Attribute>
+                     <Attribute partialScore="3">
+                        <SimplePredicate field="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" operator="lessThan" value="105" />
+                     </Attribute>
+                     <Attribute partialScore="7">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" operator="greaterOrEqual" value="105" />
+                           <SimplePredicate field="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" operator="lessThan" value="147" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="11">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" operator="greaterOrEqual" value="147" />
+                           <SimplePredicate field="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" operator="lessThan" value="173" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="15">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" operator="greaterOrEqual" value="173" />
+                           <SimplePredicate field="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" operator="lessThan" value="181" />
+                        </CompoundPredicate>
+                     </Attribute>
+                     <Attribute partialScore="20">
+                        <SimplePredicate field="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" operator="greaterOrEqual" value="181" />
+                     </Attribute>
+                  </Characteristic>
+               </Characteristics>
+            </Scorecard>
+         </Segment>
+         <Segment id="2">
+            <True />
+            <TreeModel modelName="riskGroupModel" functionName="classification" noTrueChildStrategy="returnLastPrediction" splitCharacteristic="multiSplit">
+               <MiningSchema>
+                  <MiningField name="TOTAL_CUSTOMER_SCORE" usageType="active" />
+                  <MiningField name="mpesaTurnoverExcl" usageType="active" />
+                  <MiningField name="mpesaTurnoverCount" usageType="active" />
+               </MiningSchema>
+               <Output>
+                  <OutputField name="RISK_GROUP" optype="categorical" dataType="string" feature="predictedValue" />
+                  <OutputField name="mpesaTurnover" optype="continuous" dataType="double" feature="transformedValue">
+                     <Apply function="/">
+                        <FieldRef field="mpesaTurnoverExcl" />
+                        <FieldRef field="mpesaTurnoverCount" />
+                     </Apply>
+                  </OutputField>
+               </Output>
+               <Node score="B0">
+                  <True />
+                  <Node score="B1">
+                     <SimplePredicate field="TOTAL_CUSTOMER_SCORE" operator="greaterThan" value="170" />
+                  </Node>
+                  <Node score="B2">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="TOTAL_CUSTOMER_SCORE" operator="greaterThan" value="140" />
+                        <SimplePredicate field="TOTAL_CUSTOMER_SCORE" operator="lessOrEqual" value="170" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="B3">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="TOTAL_CUSTOMER_SCORE" operator="greaterThan" value="111" />
+                        <SimplePredicate field="TOTAL_CUSTOMER_SCORE" operator="lessOrEqual" value="140" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="B4">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="TOTAL_CUSTOMER_SCORE" operator="greaterThan" value="90" />
+                        <SimplePredicate field="TOTAL_CUSTOMER_SCORE" operator="lessOrEqual" value="111" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="B5">
+                     <SimplePredicate field="TOTAL_CUSTOMER_SCORE" operator="lessOrEqual" value="90" />
+                  </Node>
+               </Node>
+            </TreeModel>
+         </Segment>
+         <Segment id="3">
+            <True />
+            <TreeModel modelName="incomeCategoryModel" functionName="classification" noTrueChildStrategy="returnLastPrediction" splitCharacteristic="multiSplit">
+               <MiningSchema>
+                  <MiningField name="mpesaTurnover" usageType="active" />
+               </MiningSchema>
+               <Output>
+                  <OutputField name="INCOME_CATEGORY" optype="categorical" dataType="string" feature="predictedValue" />
+               </Output>
+               <Node score="M-C-ALL">
+                  <True />
+                  <Node score="M0">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnover" operator="greaterOrEqual" value="100" />
+                        <SimplePredicate field="mpesaTurnover" operator="lessThan" value="1000" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="M1">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnover" operator="greaterOrEqual" value="1000" />
+                        <SimplePredicate field="mpesaTurnover" operator="lessThan" value="2201" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="M2">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnover" operator="greaterOrEqual" value="2201" />
+                        <SimplePredicate field="mpesaTurnover" operator="lessThan" value="5400" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="M3">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnover" operator="greaterOrEqual" value="5401" />
+                        <SimplePredicate field="mpesaTurnover" operator="lessThan" value="9800" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="M4">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnover" operator="greaterOrEqual" value="9801" />
+                        <SimplePredicate field="mpesaTurnover" operator="lessThan" value="15600" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="M5">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnover" operator="greaterOrEqual" value="15601" />
+                        <SimplePredicate field="mpesaTurnover" operator="lessThan" value="23400" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="M6">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnover" operator="greaterOrEqual" value="23401" />
+                        <SimplePredicate field="mpesaTurnover" operator="lessThan" value="35200" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="M7">
+                     <SimplePredicate field="mpesaTurnover" operator="greaterOrEqual" value="35200" />
+                  </Node>
+               </Node>
+            </TreeModel>
+         </Segment>
+         <Segment id="4">
+            <True />
+            <TreeModel modelName="limitModel" functionName="classification" noTrueChildStrategy="returnLastPrediction" splitCharacteristic="multiSplit">
+               <MiningSchema>
+                  <MiningField name="INCOME_CATEGORY" usageType="active" />
+                  <MiningField name="mpesaTurnoverCount" usageType="active" />
+                  <MiningField name="RISK_GROUP" usageType="active" />
+               </MiningSchema>
+               <Output>
+                  <OutputField name="LOAN_LIMIT" optype="categorical" dataType="string" feature="predictedValue" />
+               </Output>
+               <Node score="0.00">
+                  <True />
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M0" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M0" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M0" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="300.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M0" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="300.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M0" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M1" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="4500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M2" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="7000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M3" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="12000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M4" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="18000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M5" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="27000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M6" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="42000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M7" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="900.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M1" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="3500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M2" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="5500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M3" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="10000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M4" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="15000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M5" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="23000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M6" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="35000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M7" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M1" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M2" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="4500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M3" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="7000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M4" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="12000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M5" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="18000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M6" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="27000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M7" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M1" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M2" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="2500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M3" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="2500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M4" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="2500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M5" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="2500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M6" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="2500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M7" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M1" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M2" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M3" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="2500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M4" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="2500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M5" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="2500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M6" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="2500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M7" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="greaterOrEqual" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="100.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M0" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="100.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M0" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="100.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M0" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="0.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M0" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="0.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M0" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M1" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="4500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M2" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="7000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M3" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="12000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M4" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="18000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M5" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="27000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M6" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="42000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M7" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B1" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="900.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M1" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="3500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M2" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="5500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M3" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="10000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M4" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="15000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M5" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="23000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M6" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="35000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M7" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B2" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M1" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M2" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="4500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M3" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="7000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M4" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="12000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M5" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="18000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M6" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="27000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M7" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B3" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="300.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M1" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M2" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M3" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M4" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M5" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M6" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M7" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B4" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="300.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M1" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M2" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="500.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M3" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M4" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M5" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M6" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="1000.00">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="INCOME_CATEGORY" operator="equal" value="M7" />
+                        <SimplePredicate field="RISK_GROUP" operator="equal" value="B5" />
+                        <SimplePredicate field="mpesaTurnoverCount" operator="lessThan" value="24" />
+                     </CompoundPredicate>
+                  </Node>
+               </Node>
+            </TreeModel>
+         </Segment>
+         <Segment id="5">
+            <True />
+            <TreeModel modelName="finalOutputModel" functionName="classification" noTrueChildStrategy="returnLastPrediction" splitCharacteristic="multiSplit">
+               <MiningSchema>
+                  <MiningField name="INCOME_CATEGORY" usageType="active" />
+                  <MiningField name="RISK_GROUP" usageType="active" />
+                  <MiningField name="TOTAL_CUSTOMER_SCORE" usageType="active" />
+                  <MiningField name="LOAN_LIMIT" usageType="active" />
+                  <MiningField name="mpesaTurnover" usageType="active" />
+                  <MiningField name="mpesaTurnoverCount" usageType="active" />
+                  <MiningField name="mpesaTurnoverExcl" usageType="active" />
+                  <MiningField name="SFCFUL_AGE_ON_MPESA" usageType="active" />
+                  <MiningField name="SFCFUL_DATA_AGE_DAYS" usageType="active" />
+                  <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" usageType="active" />
+                  <MiningField name="MR_MSHWARI_DEFAULT" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_DEPOSIT_AMOUNT_6M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_RECEIVE_NUM_6M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_DEPOSIT_NUM_3M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_DEPOSIT_NUM_6M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_SEND_NUM_6M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" usageType="active" />
+                  <MiningField name="SFCFUL_MPSA_WITHDRAW_AMNT_6M" usageType="active" />
+                  <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" usageType="active" />
+                  <MiningField name="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" usageType="active" />
+                  <MiningField name="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" usageType="active" />
+               </MiningSchema>
+               <Output>
+                  <OutputField name="mpesaTransferFromBankAmount6m" optype="continuous" dataType="double" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" />
+                  </OutputField>
+                  <OutputField name="mpesaDepositAmount6m" optype="continuous" dataType="double" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_DEPOSIT_AMOUNT_6M" />
+                  </OutputField>
+                  <OutputField name="mpesaReceiveAmount6m" optype="continuous" dataType="double" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" />
+                  </OutputField>
+                  <OutputField name="mpesaTransferFromBankNumber6m" optype="continuous" dataType="integer" feature="transformedValue">
+    	                 <FieldRef field="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" />
+                  </OutputField>
+                  <OutputField name="mpesaReceiveNumber6m" optype="categorical" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_RECEIVE_NUM_6M" />
+                  </OutputField>
+                  <OutputField name="mpesaDepositAcceptors3m" optype="continuous" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" />
+                  </OutputField>
+                  <OutputField name="mpesaDepositNumber3m" optype="categorical" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_DEPOSIT_NUM_3M" />
+                  </OutputField>
+                  <OutputField name="mpesaPayBillAcceptors3m" optype="categorical" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M" />
+                  </OutputField>
+                  <OutputField name="mpesaPayBillAmount3m" optype="continuous" dataType="double" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_PAY_BILL_AMOUNT_3M" />
+                  </OutputField>
+                  <OutputField name="mpesaReceivedAcceptors3m" optype="continuous" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M" />
+                  </OutputField>
+                  <OutputField name="mpesaSendNumber6m" optype="continuous" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_SEND_NUM_6M" />
+                  </OutputField>
+                  <OutputField name="mpesaWithdrawAcceptors3m" optype="categorical" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" />
+                  </OutputField>
+                  <OutputField name="mpesaWithdrawAmount6m" optype="continuous" dataType="double" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" />
+                  </OutputField>
+                  <OutputField name="networkAirtimeUtilization1m" optype="continuous" dataType="double" feature="transformedValue">
+                     <FieldRef field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" />
+                  </OutputField>
+                  <OutputField name="noTotalCallsInbound3m" optype="continuous" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" />
+                  </OutputField>
+                  <OutputField name="numberOfActivityDays3m" optype="continuous" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" />
+                  </OutputField>
+                  <OutputField name="custExcludedBy" optype="categorical" dataType="string" feature="predictedValue" />
+                  <OutputField name="custLoanLimit" optype="continuous" dataType="double" feature="transformedValue">
+                     <FieldRef field="LOAN_LIMIT" />
+                  </OutputField>
+                  <OutputField name="custScore" optype="continuous" dataType="integer" feature="transformedValue">
+                     <FieldRef field="TOTAL_CUSTOMER_SCORE" />
+                  </OutputField>
+                  <OutputField name="netRegMonths" optype="continuous" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_AGE_ON_MPESA" />
+                  </OutputField>
+                  <OutputField name="dataAge" optype="continuous" dataType="integer" feature="transformedValue">
+                     <FieldRef field="SFCFUL_DATA_AGE_DAYS" />
+                  </OutputField>
+                  <OutputField name="mpesaDepositNumber6m" optype="categorical" dataType="string" feature="transformedValue">
+                     <FieldRef field="SFCFUL_MPSA_DEPOSIT_NUM_6M" />
+                  </OutputField>
+                  <OutputField name="mshwariDefault" optype="categorical" dataType="string" feature="transformedValue">
+                     <FieldRef field="MR_MSHWARI_DEFAULT" />
+                  </OutputField>
+                  <OutputField name="avgAirtimeTurnover6MExcl" optype="continuous" dataType="double" feature="transformedValue">
+                     <FieldRef field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" />
+                  </OutputField>
+				  <OutputField name="NEXTPMML"
+							optype="categorical" dataType="string" feature="transformedValue">
+							<Constant dataType="string">NA</Constant>
+						</OutputField>
+                  <OutputField name="incomeCat" optype="categorical" dataType="string" feature="transformedValue">
+                     <FieldRef field="INCOME_CATEGORY" />
+                  </OutputField>
+                  <OutputField name="scoreCat" optype="categorical" dataType="string" feature="transformedValue">
+                     <FieldRef field="RISK_GROUP" />
+                  </OutputField>
+                  <OutputField name="currentInflow" optype="continuous" dataType="double" feature="transformedValue">
+                     <FieldRef field="mpesaTurnover" />
+                  </OutputField>
+                  <OutputField name="currentInflowCount" optype="continuous" dataType="integer" feature="transformedValue">
+                     <FieldRef field="mpesaTurnoverCount" />
+                  </OutputField>
+                  <OutputField name="currentInflowExcl" optype="continuous" dataType="double" feature="transformedValue">
+                     <FieldRef field="mpesaTurnoverExcl" />
+                  </OutputField>
+               </Output>
+               <Node score="NOT_EXCLUDED">
+                  <True />
+                  <Node score="SFCFUL_AGE_ON_MPESA|AVG_MPESA_TURNOVER_6MONTHS|AVG_AIRTIME_TURNOVER_6MONTHS|SFCFUL_DATA_AGE_DAYS|MR_MSHWARI_DEFAULT">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="lessThan" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="SFCFUL_AGE_ON_MPESA|AVG_MPESA_TURNOVER_6MONTHS">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="lessThan" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="SFCFUL_AGE_ON_MPESA|AVG_AIRTIME_TURNOVER_6MONTHS">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="lessThan" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="SFCFUL_AGE_ON_MPESA|SFCFUL_DATA_AGE_DAYS">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="lessThan" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="SFCFUL_AGE_ON_MPESA|MR_MSHWARI_DEFAULT">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="lessThan" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="AVG_MPESA_TURNOVER_6MONTHS|AVG_AIRTIME_TURNOVER_6MONTHS">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="AVG_MPESA_TURNOVER_6MONTHS|SFCFUL_DATA_AGE_DAYS">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="AVG_MPESA_TURNOVER_6MONTHS|MR_MSHWARI_DEFAULT">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="AVG_AIRTIME_TURNOVER_6MONTHS|SFCFUL_DATA_AGE_DAYS">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="AVG_AIRTIME_TURNOVER_6MONTHS|MR_MSHWARI_DEFAULT">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="SFCFUL_DATA_AGE_DAYS|MR_MSHWARI_DEFAULT">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="SFCFUL_AGE_ON_MPESA">
+                     <CompoundPredicate booleanOperator="or">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="lessThan" value="6" />
+                           <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
+                           <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
+                           <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                        </CompoundPredicate>
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="isMissing" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="AVG_MPESA_TURNOVER_6MONTHS">
+                     <CompoundPredicate booleanOperator="and">
+                        <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
+                        <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="AVG_AIRTIME_TURNOVER_6MONTHS">
+                     <CompoundPredicate booleanOperator="or">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
+                           <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
+                           <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
+                           <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                        </CompoundPredicate>
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="isMissing" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="SFCFUL_DATA_AGE_DAYS">
+                     <CompoundPredicate booleanOperator="or">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
+                           <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
+                           <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
+                           <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                        </CompoundPredicate>
+                        <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="isMissing" />
+                     </CompoundPredicate>
+                  </Node>
+                  <Node score="MR_MSHWARI_DEFAULT">
+                     <CompoundPredicate booleanOperator="or">
+                        <CompoundPredicate booleanOperator="and">
+                           <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
+                           <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
+                           <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
+                           <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                        </CompoundPredicate>
+                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="isMissing" />
+                     </CompoundPredicate>
+                  </Node>
+               </Node>
+            </TreeModel>
+         </Segment>
+      </Segmentation>
+   </MiningModel>
+</PMML>]]></cred:Model>
+            <cred:PredictionVariables><![CDATA[<customervariables>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M</name>
+      <value>13</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M</name>
+      <value>0</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_RECEIVE_AMOUNT_6M</name>
+      <value>78170</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_DEPOSIT_NUM_6M</name>
+      <value>187</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_RECEIVE_NUM_6M</name>
+      <value>15</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_DEPOSIT_AMOUNT_6M</name>
+      <value>2499430</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M</name>
+      <value>0</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_DEPOSIT_NUM_3M</name>
+      <value>116</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_PAY_BILL_ACCEPTORS_3M</name>
+      <value>3</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_PAY_BILL_AMOUNT_3M</name>
+      <value>2223714</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_RECEIVED_ACCEPTORS_3M</name>
+      <value>3</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_SEND_NUM_6M</name>
+      <value>94</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M</name>
+      <value>1</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_MPSA_WITHDRAW_AMNT_6M</name>
+      <value>2450</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_NETWORK_AIRTIME_UTLZTN_1M</name>
+      <value>9772.6087</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6</name>
+      <value>32228.9105</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_NO_TOTAL_CALLS_INBOUND_3M</name>
+      <value>75</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M</name>
+      <value>70</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_AGE_ON_MPESA</name>
+      <value>23</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>SFCFUL_DATA_AGE_DAYS</name>
+      <value>0</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>MR_MSHWARI_DEFAULT</name>
+      <value>NO</value>
+   </CBAVariable>
+   <CBAVariable>
+      <name>MSISDN</name>
+      <value/>
+   </CBAVariable>
+   <CBAVariable>
+      <name>REFERENCE_ID</name>
+      <value>PRE_AG_20200803_10206df15ef76034</value>
+   </CBAVariable>
+</customervariables>]]></cred:PredictionVariables>
+         </cred:DataRequest>
+      </cred:ServiceRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
