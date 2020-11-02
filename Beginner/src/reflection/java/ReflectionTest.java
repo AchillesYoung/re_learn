@@ -34,6 +34,7 @@ public class ReflectionTest {
     //反射之后，对于Person的操作
     @Test
     public void test2() throws Exception{
+        //Class类是一个加载在内存的运行时类
         Class clazz = Person.class;
         //1.通过反射，创建Person类的对象
         Constructor cons = clazz.getConstructor(String.class,int.class);
@@ -46,8 +47,18 @@ public class ReflectionTest {
         age.set(p,10);
         System.out.println(p.toString());
 
+        Class<Person> personClazz = Person.class;
+        //两个类引用是相等的true
+        System.out.println("两个类引用是相等的true");
+        System.out.println(personClazz==clazz);
+        Person person = personClazz.newInstance();
+        System.out.println("两个类创建的对象引用是不等的false");
+        System.out.println(p==person);
+
+        Method show = personClazz.getDeclaredMethod("show");
+        show.invoke(person);
         //调用方法
-        Method show = clazz.getDeclaredMethod("show");
+//        Method show = clazz.getDeclaredMethod("show");
         show.invoke(p);
 
         System.out.println("*******************************");
@@ -66,6 +77,9 @@ public class ReflectionTest {
         System.out.println(p1);
 
         //调用私有的方法
+        Method showPrivate = personClazz.getDeclaredMethod("showNation", String.class);
+        showPrivate.setAccessible(true);
+        showPrivate.invoke(personClazz.newInstance(),"test");
         Method showNation = clazz.getDeclaredMethod("showNation", String.class);
         showNation.setAccessible(true);
         String nation = (String) showNation.invoke(p1,"中国");//相当于String nation = p1.showNation("中国")
@@ -76,8 +90,7 @@ public class ReflectionTest {
     //疑问1：通过直接new的方式或反射的方式都可以调用公共的结构，开发中到底用那个？
     //建议：直接new的方式。
     //什么时候会使用：反射的方式。 反射的特征：动态性
-    //疑问2：反射机制与面向对象中的封装性是不是矛盾的？如何看待两个技术？
-    //不矛盾。
+
 
     /*
     关于java.lang.Class类的理解
@@ -88,6 +101,7 @@ public class ReflectionTest {
     运行时类，就作为Class的一个实例。
 
     2.换句话说，Class的实例就对应着一个运行时类。
+
     3.加载到内存中的运行时类，会缓存一定的时间。在此时间之内，我们可以通过不同的方式
     来获取此运行时类。
      */

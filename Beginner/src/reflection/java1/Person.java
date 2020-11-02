@@ -7,7 +7,7 @@ package reflection.java1;
 @MyAnnotation(value="hi")
 public class Person extends Creature<String> implements Comparable<String>,MyInterface{
 
-    private String name;
+    private @MyAnnotation String name;
     int age;
     public int id;
 

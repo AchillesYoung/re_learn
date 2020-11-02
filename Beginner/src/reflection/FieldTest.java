@@ -4,6 +4,7 @@ package reflection;
 import org.junit.Test;
 import reflection.java1.Person;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -35,6 +36,26 @@ public class FieldTest {
         }
     }
 
+    @Test
+    public void test3(){
+        Class clazz = Person.class;
+        Field[] declaredFields = clazz.getDeclaredFields();
+        for (Field f : declaredFields) {
+            int modifiers = f.getModifiers();
+            System.out.println("modifiers:"+Modifier.toString(modifiers));
+            Class type = f.getType();
+            System.out.println("type.getName():"+type.getName());
+            //3.变量名
+            String fName = f.getName();
+            System.out.println("f.getName():"+fName);
+
+            Annotation[] annotations = f.getAnnotations();
+            for (Annotation annotation : annotations) {
+                System.out.println("annotation:"+annotation);
+            }
+
+        }
+    }
     //权限修饰符  数据类型 变量名
     @Test
     public void test2(){
@@ -53,7 +74,6 @@ public class FieldTest {
             String fName = f.getName();
             System.out.print(fName);
 
-            System.out.println();
         }
 
 
