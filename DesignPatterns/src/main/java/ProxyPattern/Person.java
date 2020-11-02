@@ -9,10 +9,11 @@ package ProxyPattern;
  * copyright @2020 Beijing Morong Information Techology CO.,Ltd.
  */
 public interface Person {
-
+    //接口默认有final
     public void eat();
 
     public void bath();
 
 
+    //jvm 加载代码的时候，初始化副值
 }
