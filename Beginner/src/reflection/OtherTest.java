@@ -1,10 +1,12 @@
 package reflection;
 
 import org.junit.Test;
+import reflection.java1.MyInterface;
 import reflection.java1.Person;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -37,6 +39,8 @@ public class OtherTest {
 
     }
 
+
+
     /*
     获取运行时类的父类
 
@@ -47,6 +51,8 @@ public class OtherTest {
 
         Class superclass = clazz.getSuperclass();
         System.out.println(superclass);
+
+
     }
 
     /*
@@ -85,9 +91,15 @@ public class OtherTest {
     @Test
     public void test5(){
         Class clazz = Person.class;
+        Class<? extends MyInterface> myInterfaceClass = MyInterface.class;
+        try {
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         Class[] interfaces = clazz.getInterfaces();
         for(Class c : interfaces){
+
             System.out.println(c);
         }
 

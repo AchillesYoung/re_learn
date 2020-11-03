@@ -10,7 +10,7 @@
       <DataField name="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" dataType="double" optype="continuous">
          <Interval closure="closedClosed" leftMargin="0" rightMargin="999999999" />
       </DataField>
-      <DataField name="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" dataType="integer" optype="continuous">
+      <DataField name="SFCFUL_MPESA_TRANSFER_FROM_BANK_NUMBER_6M" dataType="integer" optype="continuous">
          <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
       </DataField>
       <DataField name="SFCFUL_MPSA_DEPOSIT_NUM_6M" dataType="integer" optype="continuous">
@@ -43,7 +43,7 @@
       <DataField name="SFCFUL_MPSA_WITHDRAW_AMNT_6M" dataType="double" optype="continuous">
          <Interval closure="closedClosed" leftMargin="0" rightMargin="999999999" />
       </DataField>
-      <DataField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" dataType="double" optype="continuous">
+      <DataField name="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" dataType="double" optype="continuous">
          <Interval closure="closedClosed" leftMargin="0" rightMargin="999999999" />
       </DataField>
       <DataField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" dataType="double" optype="continuous">
@@ -61,11 +61,11 @@
       <DataField name="SFCFUL_DATA_AGE_DAYS" dataType="integer" optype="continuous">
          <Interval closure="closedClosed" leftMargin="0" rightMargin="999999" />
       </DataField>
-      <DataField name="MR_MSHWARI_DEFAULT" optype="categorical" dataType="string">
+      <DataField name="SFCFUL_MSHWARI_DEFAULT" optype="categorical" dataType="string">
          <Value value="YES" />
          <Value value="NO" />
       </DataField>
-	  <DataField name="NEXTPMML" dataType="string" optype="categorical" />
+    <DataField name="NEXTPMML" dataType="string" optype="categorical" />
       <DataField name="mpesaTransferFromBankAmount6m" dataType="double" optype="continuous" />
       <DataField name="mpesaDepositAmount6m" dataType="double" optype="continuous" />
       <DataField name="mpesaReceiveAmount6m" dataType="double" optype="continuous" />
@@ -122,7 +122,7 @@
          <MiningField name="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_MPSA_DEPOSIT_AMOUNT_6M" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" usageType="active" invalidValueTreatment="asMissing" />
-         <MiningField name="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_MPESA_TRANSFER_FROM_BANK_NUMBER_6M" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_MPSA_DEPOSIT_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_MPSA_RECEIVE_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
@@ -133,14 +133,14 @@
          <MiningField name="SFCFUL_MPSA_SEND_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_MPSA_WITHDRAW_AMNT_6M" usageType="active" invalidValueTreatment="asMissing" />
-         <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" usageType="active" invalidValueTreatment="asMissing" />
+         <MiningField name="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_AGE_ON_MPESA" usageType="active" invalidValueTreatment="asMissing" />
          <MiningField name="SFCFUL_DATA_AGE_DAYS" usageType="active" invalidValueTreatment="asMissing" />
-         <MiningField name="MR_MSHWARI_DEFAULT" usageType="active" invalidValueTreatment="asMissing" />
-		 <MiningField name="NEXTPMML" usageType="predicted" />
+         <MiningField name="SFCFUL_MSHWARI_DEFAULT" usageType="active" invalidValueTreatment="asMissing" />
+     <MiningField name="NEXTPMML" usageType="predicted" />
          <MiningField name="currentInflowCount" usageType="predicted" />
          <MiningField name="currentInflow" usageType="predicted" />
          <MiningField name="currentInflowExcl" usageType="predicted" />
@@ -179,7 +179,7 @@
                   <MiningField name="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
                   <MiningField name="SFCFUL_MPSA_DEPOSIT_AMOUNT_6M" usageType="active" invalidValueTreatment="asMissing" />
                   <MiningField name="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" usageType="active" invalidValueTreatment="asMissing" />
-                  <MiningField name="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_MPESA_TRANSFER_FROM_BANK_NUMBER_6M" usageType="active" invalidValueTreatment="asMissing" />
                   <MiningField name="SFCFUL_MPSA_DEPOSIT_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
                   <MiningField name="SFCFUL_MPSA_RECEIVE_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
                   <MiningField name="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
@@ -190,7 +190,7 @@
                   <MiningField name="SFCFUL_MPSA_SEND_NUM_6M" usageType="active" invalidValueTreatment="asMissing" />
                   <MiningField name="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" usageType="active" invalidValueTreatment="asMissing" />
                   <MiningField name="SFCFUL_MPSA_WITHDRAW_AMNT_6M" usageType="active" invalidValueTreatment="asMissing" />
-                  <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" usageType="active" invalidValueTreatment="asMissing" />
+                  <MiningField name="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" usageType="active" invalidValueTreatment="asMissing" />
                   <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" usageType="active" invalidValueTreatment="asMissing" />
                   <MiningField name="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" usageType="active" invalidValueTreatment="asMissing" />
                   <MiningField name="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" usageType="active" invalidValueTreatment="asMissing" />
@@ -199,7 +199,7 @@
                   <OutputField name="TOTAL_CUSTOMER_SCORE" optype="continuous" dataType="integer" feature="predictedValue" />
                   <OutputField name="mpesaTurnoverExcl" optype="continuous" dataType="double" feature="transformedValue">
                      <Apply function="sum">
-                        <FieldRef field="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" />
+                        <FieldRef field="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" />
                         <FieldRef field="SFCFUL_MPSA_DEPOSIT_AMOUNT_6M" />
                         <FieldRef field="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" />
                      </Apply>
@@ -208,7 +208,7 @@
                      <Apply function="if">
                         <Apply function="equal">
                            <Apply function="sum">
-                              <FieldRef field="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" />
+                              <FieldRef field="SFCFUL_MPESA_TRANSFER_FROM_BANK_NUMBER_6M" />
                               <FieldRef field="SFCFUL_MPSA_DEPOSIT_NUM_6M" />
                               <FieldRef field="SFCFUL_MPSA_RECEIVE_NUM_6M" />
                            </Apply>
@@ -216,7 +216,7 @@
                         </Apply>
                         <Constant dataType="integer">1</Constant>
                         <Apply function="sum">
-                           <FieldRef field="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" />
+                           <FieldRef field="SFCFUL_MPESA_TRANSFER_FROM_BANK_NUMBER_6M" />
                            <FieldRef field="SFCFUL_MPSA_DEPOSIT_NUM_6M" />
                            <FieldRef field="SFCFUL_MPSA_RECEIVE_NUM_6M" />
                         </Apply>
@@ -456,33 +456,33 @@
                         <SimplePredicate field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" operator="greaterOrEqual" value="108070" />
                      </Attribute>
                   </Characteristic>
-                  <Characteristic name="SFCFUL_NETWORK_AIRTIME_UTLZTN_1MScore" reasonCode="RC9" baselineScore="18">
+                  <Characteristic name="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1MScore" reasonCode="RC9" baselineScore="18">
                      <Attribute partialScore="12">
-                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="isMissing" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" operator="isMissing" />
                      </Attribute>
                      <Attribute partialScore="9">
-                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="lessThan" value="163.4" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" operator="lessThan" value="163.4" />
                      </Attribute>
                      <Attribute partialScore="10">
                         <CompoundPredicate booleanOperator="and">
-                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="greaterOrEqual" value="163.4" />
-                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="lessThan" value="372.37" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" operator="greaterOrEqual" value="163.4" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" operator="lessThan" value="372.37" />
                         </CompoundPredicate>
                      </Attribute>
                      <Attribute partialScore="11">
                         <CompoundPredicate booleanOperator="and">
-                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="greaterOrEqual" value="372.37" />
-                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="lessThan" value="689.82" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" operator="greaterOrEqual" value="372.37" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" operator="lessThan" value="689.82" />
                         </CompoundPredicate>
                      </Attribute>
                      <Attribute partialScore="12">
                         <CompoundPredicate booleanOperator="and">
-                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="greaterOrEqual" value="689.82" />
-                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="lessThan" value="1566.47" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" operator="greaterOrEqual" value="689.82" />
+                           <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" operator="lessThan" value="1566.47" />
                         </CompoundPredicate>
                      </Attribute>
                      <Attribute partialScore="14">
-                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" operator="greaterOrEqual" value="1566.47" />
+                        <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" operator="greaterOrEqual" value="1566.47" />
                      </Attribute>
                   </Characteristic>
                   <Characteristic name="SFCFUL_NO_TOTAL_CALLS_INBOUND_3MScore" reasonCode="RC10" baselineScore="18">
@@ -1241,11 +1241,11 @@
                   <MiningField name="SFCFUL_AGE_ON_MPESA" usageType="active" />
                   <MiningField name="SFCFUL_DATA_AGE_DAYS" usageType="active" />
                   <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" usageType="active" />
-                  <MiningField name="MR_MSHWARI_DEFAULT" usageType="active" />
+                  <MiningField name="SFCFUL_MSHWARI_DEFAULT" usageType="active" />
                   <MiningField name="SFCFUL_MPSA_TRANSFER_FROM_BANK_NUM_6M" usageType="active" />
                   <MiningField name="SFCFUL_MPSA_DEPOSIT_AMOUNT_6M" usageType="active" />
                   <MiningField name="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" usageType="active" />
-                  <MiningField name="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" usageType="active" />
+                  <MiningField name="SFCFUL_MPESA_TRANSFER_FROM_BANK_NUMBER_6M" usageType="active" />
                   <MiningField name="SFCFUL_MPSA_RECEIVE_NUM_6M" usageType="active" />
                   <MiningField name="SFCFUL_MPSA_DEPOSIT_ACCEPTORS_3M" usageType="active" />
                   <MiningField name="SFCFUL_MPSA_DEPOSIT_NUM_3M" usageType="active" />
@@ -1256,7 +1256,7 @@
                   <MiningField name="SFCFUL_MPSA_SEND_NUM_6M" usageType="active" />
                   <MiningField name="SFCFUL_MPSA_WITHDRAW_ACCEPTORS_3M" usageType="active" />
                   <MiningField name="SFCFUL_MPSA_WITHDRAW_AMNT_6M" usageType="active" />
-                  <MiningField name="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" usageType="active" />
+                  <MiningField name="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" usageType="active" />
                   <MiningField name="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" usageType="active" />
                   <MiningField name="SFCFUL_NUMBER_OF_ACTIVITY_DAYS_3M" usageType="active" />
                </MiningSchema>
@@ -1271,7 +1271,7 @@
                      <FieldRef field="SFCFUL_MPSA_RECEIVE_AMOUNT_6M" />
                   </OutputField>
                   <OutputField name="mpesaTransferFromBankNumber6m" optype="continuous" dataType="integer" feature="transformedValue">
-    	                 <FieldRef field="SFCFUL_MPSA_TRNFR_FROM_BANK_AMNT_6M" />
+                       <FieldRef field="SFCFUL_MPESA_TRANSFER_FROM_BANK_NUMBER_6M" />
                   </OutputField>
                   <OutputField name="mpesaReceiveNumber6m" optype="categorical" dataType="integer" feature="transformedValue">
                      <FieldRef field="SFCFUL_MPSA_RECEIVE_NUM_6M" />
@@ -1301,7 +1301,7 @@
                      <FieldRef field="SFCFUL_MPSA_WITHDRAW_AMNT_6M" />
                   </OutputField>
                   <OutputField name="networkAirtimeUtilization1m" optype="continuous" dataType="double" feature="transformedValue">
-                     <FieldRef field="SFCFUL_NETWORK_AIRTIME_UTLZTN_1M" />
+                     <FieldRef field="SFCFUL_NETWORK_AIRTIME_UTILIZATION_1M" />
                   </OutputField>
                   <OutputField name="noTotalCallsInbound3m" optype="continuous" dataType="integer" feature="transformedValue">
                      <FieldRef field="SFCFUL_NO_TOTAL_CALLS_INBOUND_3M" />
@@ -1326,15 +1326,15 @@
                      <FieldRef field="SFCFUL_MPSA_DEPOSIT_NUM_6M" />
                   </OutputField>
                   <OutputField name="mshwariDefault" optype="categorical" dataType="string" feature="transformedValue">
-                     <FieldRef field="MR_MSHWARI_DEFAULT" />
+                     <FieldRef field="SFCFUL_MSHWARI_DEFAULT" />
                   </OutputField>
                   <OutputField name="avgAirtimeTurnover6MExcl" optype="continuous" dataType="double" feature="transformedValue">
                      <FieldRef field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" />
                   </OutputField>
-				  <OutputField name="NEXTPMML"
-							optype="categorical" dataType="string" feature="transformedValue">
-							<Constant dataType="string">NA</Constant>
-						</OutputField>
+          <OutputField name="NEXTPMML"
+              optype="categorical" dataType="string" feature="transformedValue">
+              <Constant dataType="string">NA</Constant>
+            </OutputField>
                   <OutputField name="incomeCat" optype="categorical" dataType="string" feature="transformedValue">
                      <FieldRef field="INCOME_CATEGORY" />
                   </OutputField>
@@ -1353,13 +1353,13 @@
                </Output>
                <Node score="NOT_EXCLUDED">
                   <True />
-                  <Node score="SFCFUL_AGE_ON_MPESA|AVG_MPESA_TURNOVER_6MONTHS|AVG_AIRTIME_TURNOVER_6MONTHS|SFCFUL_DATA_AGE_DAYS|MR_MSHWARI_DEFAULT">
+                  <Node score="SFCFUL_AGE_ON_MPESA|AVG_MPESA_TURNOVER_6MONTHS|AVG_AIRTIME_TURNOVER_6MONTHS|SFCFUL_DATA_AGE_DAYS|SFCFUL_MSHWARI_DEFAULT">
                      <CompoundPredicate booleanOperator="and">
                         <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="lessThan" value="6" />
                         <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="YES" />
                      </CompoundPredicate>
                   </Node>
                   <Node score="SFCFUL_AGE_ON_MPESA|AVG_MPESA_TURNOVER_6MONTHS">
@@ -1368,7 +1368,7 @@
                         <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="NO" />
                      </CompoundPredicate>
                   </Node>
                   <Node score="SFCFUL_AGE_ON_MPESA|AVG_AIRTIME_TURNOVER_6MONTHS">
@@ -1377,7 +1377,7 @@
                         <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="NO" />
                      </CompoundPredicate>
                   </Node>
                   <Node score="SFCFUL_AGE_ON_MPESA|SFCFUL_DATA_AGE_DAYS">
@@ -1386,16 +1386,16 @@
                         <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="NO" />
                      </CompoundPredicate>
                   </Node>
-                  <Node score="SFCFUL_AGE_ON_MPESA|MR_MSHWARI_DEFAULT">
+                  <Node score="SFCFUL_AGE_ON_MPESA|SFCFUL_MSHWARI_DEFAULT">
                      <CompoundPredicate booleanOperator="and">
                         <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="lessThan" value="6" />
                         <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="YES" />
                      </CompoundPredicate>
                   </Node>
                   <Node score="AVG_MPESA_TURNOVER_6MONTHS|AVG_AIRTIME_TURNOVER_6MONTHS">
@@ -1404,7 +1404,7 @@
                         <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="NO" />
                      </CompoundPredicate>
                   </Node>
                   <Node score="AVG_MPESA_TURNOVER_6MONTHS|SFCFUL_DATA_AGE_DAYS">
@@ -1413,16 +1413,16 @@
                         <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="NO" />
                      </CompoundPredicate>
                   </Node>
-                  <Node score="AVG_MPESA_TURNOVER_6MONTHS|MR_MSHWARI_DEFAULT">
+                  <Node score="AVG_MPESA_TURNOVER_6MONTHS|SFCFUL_MSHWARI_DEFAULT">
                      <CompoundPredicate booleanOperator="and">
                         <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
                         <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="YES" />
                      </CompoundPredicate>
                   </Node>
                   <Node score="AVG_AIRTIME_TURNOVER_6MONTHS|SFCFUL_DATA_AGE_DAYS">
@@ -1431,25 +1431,25 @@
                         <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="NO" />
                      </CompoundPredicate>
                   </Node>
-                  <Node score="AVG_AIRTIME_TURNOVER_6MONTHS|MR_MSHWARI_DEFAULT">
+                  <Node score="AVG_AIRTIME_TURNOVER_6MONTHS|SFCFUL_MSHWARI_DEFAULT">
                      <CompoundPredicate booleanOperator="and">
                         <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
                         <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="YES" />
                      </CompoundPredicate>
                   </Node>
-                  <Node score="SFCFUL_DATA_AGE_DAYS|MR_MSHWARI_DEFAULT">
+                  <Node score="SFCFUL_DATA_AGE_DAYS|SFCFUL_MSHWARI_DEFAULT">
                      <CompoundPredicate booleanOperator="and">
                         <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
                         <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="YES" />
                      </CompoundPredicate>
                   </Node>
                   <Node score="SFCFUL_AGE_ON_MPESA">
@@ -1459,7 +1459,7 @@
                            <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
                            <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
                            <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
-                           <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                           <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="NO" />
                         </CompoundPredicate>
                         <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="isMissing" />
                      </CompoundPredicate>
@@ -1470,7 +1470,7 @@
                         <SimplePredicate field="mpesaTurnoverExcl" operator="lessThan" value="100.00" />
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="NO" />
                      </CompoundPredicate>
                   </Node>
                   <Node score="AVG_AIRTIME_TURNOVER_6MONTHS">
@@ -1480,7 +1480,7 @@
                            <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
                            <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="lessThan" value="90.00" />
                            <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
-                           <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                           <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="NO" />
                         </CompoundPredicate>
                         <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="isMissing" />
                      </CompoundPredicate>
@@ -1492,21 +1492,21 @@
                            <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
                            <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
                            <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="greaterThan" value="12" />
-                           <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="NO" />
+                           <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="NO" />
                         </CompoundPredicate>
                         <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="isMissing" />
                      </CompoundPredicate>
                   </Node>
-                  <Node score="MR_MSHWARI_DEFAULT">
+                  <Node score="SFCFUL_MSHWARI_DEFAULT">
                      <CompoundPredicate booleanOperator="or">
                         <CompoundPredicate booleanOperator="and">
                            <SimplePredicate field="SFCFUL_AGE_ON_MPESA" operator="greaterOrEqual" value="6" />
                            <SimplePredicate field="mpesaTurnoverExcl" operator="greaterOrEqual" value="100.00" />
                            <SimplePredicate field="SFCFUL_NETWORK_AIRTIME_UTLZTN_6M_DIV_BY_6" operator="greaterOrEqual" value="90.00" />
                            <SimplePredicate field="SFCFUL_DATA_AGE_DAYS" operator="lessOrEqual" value="12" />
-                           <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="equal" value="YES" />
+                           <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="equal" value="YES" />
                         </CompoundPredicate>
-                        <SimplePredicate field="MR_MSHWARI_DEFAULT" operator="isMissing" />
+                        <SimplePredicate field="SFCFUL_MSHWARI_DEFAULT" operator="isMissing" />
                      </CompoundPredicate>
                   </Node>
                </Node>
