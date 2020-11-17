@@ -37,6 +37,35 @@ public class AddTwoNumbers {
         return res;
     }
 
+    /**
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode addTwoNumbersMy(ListNode l1, ListNode l2) {
+        int carry = 0;
+        int tmpSum = 0;
+        ListNode dumy = new ListNode();
+        ListNode cur = dumy;
+        while(l1 !=null || l2 !=null ){
+            int l2val = l2 != null ? l2.val : 0;
+            int l1val = l1 != null ? l1.val : 0;
+            tmpSum = l1val + l2val +carry;
+            //忘记取mod
+            cur.next = new ListNode(tmpSum%10);
+            carry = tmpSum/10;
+            cur = cur.next;
+            if (l1 != null) l1 = l1.next;
+            if (l2 != null) l2 = l2.next;
+        }
+        if (carry > 0) {
+//            System.out.println(carry);
+            cur.next = new ListNode(carry);
+        }
+        return dumy.next;
+    }
+
     public static ListNode addTwoNumber(ListNode l1, ListNode l2) {
         ListNode dummyHead = new ListNode(0);
         ListNode p = l1, q = l2, curr = dummyHead;

@@ -37,13 +37,17 @@ public class DeleteNode {
             return head.next;
         }
 
+        //这里判断cur，因为只要cur == val，那么prev直接指向cur.next
         while (cur != null) {
 
             if (cur.val == target) {
+                //prev不变，只不过删除了
                 prev.next = cur.next;
+            } else {
+                //prev变了，要换成下一个
+                prev = cur;
             }
 //            要记录一下上一个节点
-            prev = cur;
             cur = cur.next;
         }
         return head;

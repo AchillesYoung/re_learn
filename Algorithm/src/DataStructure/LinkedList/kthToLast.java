@@ -3,10 +3,6 @@ package DataStructure.LinkedList;
 /**
  * TODO
  *
- * @author yangshu
- * @version 5.0.0
- * @created at 2020/5/21-2:31 PM
- * copyright @2020 Beijing Morong Information Techology CO.,Ltd.
  */
 public class kthToLast {
 
