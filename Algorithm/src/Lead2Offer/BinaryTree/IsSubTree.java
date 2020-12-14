@@ -15,17 +15,21 @@ public class IsSubTree {
 
     public static boolean isSubStructure(TreeNode A, TreeNode B) {
         if (A == null || B == null) {
+            //null的不算子树，因为已经递归到这null层了还不相等
             return false;
         }
+        // 三个｜｜ 如果match了，就不会走 isSubStruct了，match失败就继续递归跟节点去判断isSub
         return match(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
 
     }
 
     public static boolean match(TreeNode a, TreeNode b) {
         if (b == null) {
+            //b == null, match 成功，不管a == null ｜｜ ！=null
             return true;
         }
         if (a == null) {
+            //a == null, b!=null->false
             return false;
         }
         return (a.val == b.val) && match(a.left, b.left) && match(a.right, b.right);

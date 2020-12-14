@@ -2,13 +2,12 @@ package DataStructure.LinkedList;
 
 /**
  * TODO
- *
  */
 public class kthToLast {
 
     static ListNode head;
 
-   static  {
+    static {
         ListNode a = new ListNode('a');
         ListNode b = new ListNode('b');
         ListNode c = new ListNode('c');
@@ -21,7 +20,7 @@ public class kthToLast {
         c.next = d;
         d.next = e;
         e.next = f;
-        head=a;
+        head = a;
     }
 
     public static int kthToLast(ListNode head, int k) {
@@ -29,37 +28,37 @@ public class kthToLast {
         ListNode point1 = head;
         ListNode point2 = head;
         //1-2-3-4-5-6   k=2
-        while (point1.next!=null){
-            if(k>0) {
-                point1=point1.next;
-            }else
-            {
-                point2=point2.next;
-                point1=point1.next;
+        while (point1 != null) {
+            if (k > 0) {
+                point1 = point1.next;
+            } else {
+                point2 = point2.next;
+                point1 = point1.next;
             }
 
             k--;
         }
 
-        return point2.next.value;
+        return point2.value;
     }
+
     public static int kthToLast2(ListNode head, int k) {
 
-            ListNode fast = head;
-            ListNode slow = head;
-            while (fast != null) {
-                fast = fast.next;
-                if(k<=0){
-                    //1
-                    slow = slow.next;
-                }
-                k--;
+        ListNode fast = head;
+        ListNode slow = head;
+        while (fast != null) {
+            fast = fast.next;
+            if (k <= 0) {
+                //1
+                slow = slow.next;
             }
-            return slow.value;
+            k--;
         }
+        return slow.value;
+    }
 
     public static void main(String[] args) {
 
-        System.out.println((char)kthToLast(head,1));
+        System.out.println((char) kthToLast(head, 1));
     }
 }

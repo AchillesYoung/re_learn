@@ -49,18 +49,18 @@ public class TraverseStack {
             return;
         }
         //分尔治之
-            stack.add(head);
-            while (!stack.isEmpty()) {
-                head = stack.pop();
-                System.out.print(head.val + " ");
-                if (head.right != null) {
-                    stack.push(head.right);
-                }
-                if (head.left != null) {
-                    stack.push(head.left);
-                }
+        stack.add(head);
+        while (!stack.isEmpty()) {
+            head = stack.pop();
+            System.out.print(head.val + " ");
+            if (head.right != null) {
+                stack.push(head.right);
             }
-            System.out.println();
+            if (head.left != null) {
+                stack.push(head.left);
+            }
+        }
+        System.out.println();
     }
 
     public static void midPrintStack(TreeNode root) {
@@ -127,11 +127,14 @@ public class TraverseStack {
                 root = root.left;
             }
             root = stack.pop();
-            if(--k==0){return root;}
+            if (--k == 0) {
+                return root;
+            }
             System.out.println(root.val);
             root = root.right;
         }
     }
+
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();

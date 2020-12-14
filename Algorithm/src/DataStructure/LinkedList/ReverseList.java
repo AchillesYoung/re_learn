@@ -31,17 +31,18 @@ public class ReverseList {
 
     public static ListNode reverseList(ListNode head) {
 
-
         ListNode prev = null;
         ListNode cur = head;
         ListNode next = null;
-
-        while (cur != null) {
+        while (cur !=null){
+            //非递归的思想也是，prev和next通过双指针建立联系，不是通过.next去建立联系
+            //同时我们需要一个temp指针去记录next节点作为临时节点
             next = cur.next;
             cur.next = prev;
             prev = cur;
             cur = next;
         }
+        //cur的时候结束了循环，这时候prev是最后一个节点，也就是头节点
         return prev;
     }
 

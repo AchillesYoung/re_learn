@@ -2,6 +2,9 @@ package DataStructure.tree;
 
 import apple.laf.JRSUIUtils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -13,41 +16,68 @@ import java.util.Stack;
  */
 public class TraverseRecursive {
     private static TreeNode root;
+
     /**
      * 写完忘记了递归的刹车停止条件
+     *
      * @param root
      */
-    public static void prePrintRecursive(TreeNode root){
-        if(root == null){
+    public static void prePrintRecursive(TreeNode root) {
+        if (root == null) {
             return;
         }
-        System.out.print(root.val+"->");
+        System.out.print(root.val + "->");
         prePrintRecursive(root.left);
         prePrintRecursive(root.right);
     }
-    public static void midPrintRecursive(TreeNode root){
 
-        if(root == null){
+    public static void midPrintRecursive(TreeNode root) {
+
+        if (root == null) {
             return;
         }
         midPrintRecursive(root.left);
-        System.out.print(root.val+"->");
+        System.out.print(root.val + "->");
         midPrintRecursive(root.right);
     }
 
-    public static void postPrintRecursive(TreeNode root){
+    public static List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> inorderList = new ArrayList<>();
+        if (root == null) {
+            return new ArrayList<>();
+        }
 
-        if(root == null){
+        inorderRecur(root, inorderList);
+        return inorderList;
+    }
+
+    static void inorderRecur(TreeNode root, List<Integer> inorderList) {
+        if (root == null) {
+            return;
+        }
+        inorderRecur(root.left, inorderList);
+        System.out.println(root.val);
+        inorderList.add(root.val);
+        inorderRecur(root.right, inorderList);
+    }
+
+    public static void postPrintRecursive(TreeNode root) {
+
+        if (root == null) {
             return;
         }
         postPrintRecursive(root.left);
         postPrintRecursive(root.right);
-        System.out.print(root.val+"->");
+        System.out.print(root.val + "->");
     }
 
     public static void main(String[] args) {
-        System.out.println("root:"+root.val);
+        midPrintRecursive(root);
+        System.out.println("root:" + root.val);
+        List<Integer> integers = inorderTraversal(root);
+//        Arrays.toString(integers);
 
+        System.out.println(integers);
     }
 
     static {
@@ -59,17 +89,17 @@ public class TraverseRecursive {
         TreeNode treeNode6 = new TreeNode(6);
         TreeNode treeNode7 = new TreeNode(7);
         TreeNode treeNode8 = new TreeNode(8);
-        TreeNode treeNode9= new TreeNode(9);
-        TreeNode treeNode10= new TreeNode(10);
-        treeNode1.left=  treeNode2;
-        treeNode1.right= treeNode3;
-        treeNode2.left= treeNode4;
-        treeNode2.right= treeNode5;
-        treeNode3.left= treeNode6;
-        treeNode3.right= treeNode7;
-        treeNode4.left= treeNode8;
-        treeNode4.right= treeNode9;
-        treeNode5.left= treeNode10;
+        TreeNode treeNode9 = new TreeNode(9);
+        TreeNode treeNode10 = new TreeNode(10);
+        treeNode1.left = treeNode2;
+        treeNode1.right = treeNode3;
+        treeNode2.left = treeNode4;
+        treeNode2.right = treeNode5;
+        treeNode3.left = treeNode6;
+        treeNode3.right = treeNode7;
+        treeNode4.left = treeNode8;
+        treeNode4.right = treeNode9;
+        treeNode5.left = treeNode10;
         root = treeNode1;
     }
 
