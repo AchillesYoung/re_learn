@@ -28,7 +28,6 @@ public class BubbleSort extends Sort {
                 break;
             }
         }
-
     }
 
 
