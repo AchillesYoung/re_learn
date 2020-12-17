@@ -4,6 +4,8 @@ public class HeapSort {
 
     /**
      * 构建大顶堆，然后后数组最后一位换位置
+     * 时间复杂度O (nlgn)
+     * 就地排序？O(1)
      */
     public int[] heap_sort(int[] unsorted_arry) {
         int size = unsorted_arry.length;
