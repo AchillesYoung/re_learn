@@ -15,6 +15,7 @@ public class BitDemo {
             System.out.println(n);
         }
     }
+
     @Test
     public void swap() {
 //        利用异或的交换率和结合律
@@ -29,9 +30,10 @@ public class BitDemo {
         x = x ^ y;  // （3）
         System.out.println(x + "_" + y);
     }
+
     @Test
     public int find() {
-        int [] arr = new int[5];
+        int[] arr = new int[5];
         int tmp = arr[0];
         for (int i = 1; i < arr.length; i++) {
             tmp = tmp ^ arr[i];

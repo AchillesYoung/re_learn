@@ -12,6 +12,20 @@ import java.util.Stack;
  */
 public class ReverseList {
 
+    public ListNode reverse(ListNode head) {return reverseDemo(head);}
+    public ListNode reverseDemo(ListNode head) {
+
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode next = head.next;
+        ListNode tmp = reverseDemo(next);
+        next.next = head;
+        head.next = null;
+        return tmp;
+    }
+
+
     //递归
     public ListNode reverseListRecur(ListNode head){
         return reverseListRecur(head, null);

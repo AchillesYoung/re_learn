@@ -67,7 +67,7 @@ public class HeapSort {
         //这里判断子节点索引 left <= size -1
         while (left <= size - 1) {
             //两次比较拿到三个节点最大值索引
-            int largest = left + 1 <= size - 1 && arr[left + 1] >arr[left] ? left+1 : left;
+            int largest = left + 1 <= size - 1 && arr[left + 1] > arr[left] ? left + 1 : left;
             //先对比二个子节点，拿到最大的节点的索引，再去和父节点index比较，最终拿到largest
             //这里拿到了子树里面最大的元素索引
             largest = arr[largest] > arr[index] ? largest : index;

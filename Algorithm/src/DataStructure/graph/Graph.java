@@ -33,12 +33,12 @@ public class Graph {
             String vertex = Vertexs[i];
             graph.insertVertex(vertex);
         }
-        int[] v0 = { 0, 4, MAX_WEIGHT, 7, 2, MAX_WEIGHT };
-        int[] v1 = { MAX_WEIGHT, 0, MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, 3 };
-        int[] v2 = { MAX_WEIGHT, 9, 0, 5, 6, MAX_WEIGHT };
-        int[] v3 = { MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, 0, MAX_WEIGHT, MAX_WEIGHT };
-        int[] v4 = { MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, 0, MAX_WEIGHT };
-        int[] v5 = { MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, 1, 0 };
+        int[] v0 = {0, 4, MAX_WEIGHT, 7, 2, MAX_WEIGHT};
+        int[] v1 = {MAX_WEIGHT, 0, MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, 3};
+        int[] v2 = {MAX_WEIGHT, 9, 0, 5, 6, MAX_WEIGHT};
+        int[] v3 = {MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, 0, MAX_WEIGHT, MAX_WEIGHT};
+        int[] v4 = {MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, 0, MAX_WEIGHT};
+        int[] v5 = {MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, MAX_WEIGHT, 1, 0};
 
 
         graph.insertEdge(0, 1, 1);
@@ -138,6 +138,7 @@ public class Graph {
         }
         return -1;
     }
+
     public int getNextNeighbor(int v, int index) {
         for (int j = index + 1; j < this.vertexSize; j++) {
             if (this.edges[v][j] > 0 && edges[v][j] != 1000) {
@@ -151,21 +152,22 @@ public class Graph {
      * dfs from root i
      */
     public void dfs(int i) {
-                    // 开始遍历顶点i---所以将其标记为已经遍历了
+        // 开始遍历顶点i---所以将其标记为已经遍历了
         isVisited[i] = true;
-                    //traversal each vertex, first get the first neighbor
+        //traversal each vertex, first get the first neighbor
         int FN = getFirstNeighbor(i);
-                    //if first FN exist and isVisited is false;
+        //if first FN exist and isVisited is false;
         while (FN != -1) {
             if (!isVisited[FN]) {
                 System.out.println("traversal:" + FN + "vertex");
-                            //then traversal the following neighbor with calling the method dfs recurively
+                //then traversal the following neighbor with calling the method dfs recurively
                 dfs(FN);
             }
             //if the FN has been visited, find  another node,
             FN = getNextNeighbor(i, FN);
         }
     }
+
     // the exposed method
     public void dfs() {
         for (int i = 0; i < vertexSize; i++) {
@@ -180,32 +182,33 @@ public class Graph {
      * broad search
      */
 
-    public void broadFirstSearch(int i){
+    public void broadFirstSearch(int i) {
         Queue<Integer> queue = new LinkedList<>();
         queue.add(i);
         isVisited[i] = true;
         //mark as visited
-        System.out.println("traversal:"+i+"vertex");
-        while (!queue.isEmpty()){
-            Integer head =queue.poll();
+        System.out.println("traversal:" + i + "vertex");
+        while (!queue.isEmpty()) {
+            Integer head = queue.poll();
             //get the neighbour of head of queue
             int FN = getFirstNeighbor(head);
-            while(FN != -1){
-                if(!isVisited[FN]){
+            while (FN != -1) {
+                if (!isVisited[FN]) {
                     isVisited[FN] = true;
-                    System.out.println("traversal:"+FN+"vertex");
+                    System.out.println("traversal:" + FN + "vertex");
                     queue.add(FN);
                 }
                 FN = getNextNeighbor(head, FN);
             }
         }
     }
+
     // 对外提供的广度优先遍历
     public void broadFirstSearch() {
         // 如我例子中的节点2---所以需要对每一个节点进行一下循环
         for (int i = 0; i < vertexSize; i++) {
             if (!isVisited[i]) {
-                System.out.println("traversal:"+i+"done");
+                System.out.println("traversal:" + i + "done");
                 broadFirstSearch(i);
             }
         }
