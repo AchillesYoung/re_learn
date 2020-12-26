@@ -30,18 +30,27 @@ public class QuickSort extends Sort {
 
         while(left != right){
             while(arr[right] >=pivot && left<right){
+                /**
+                 * 循环从右边开始扫描，arr[right] >=pivot，就right--
+                 * 直到右边比pivot小了，停止，定位到该目标元素，等待交换，左边目标元素
+                 */
                 right--;
             }
-            //right小于tmp,和left交换
+            //right小于pivot,和left交换
             arr[left] = arr[right];
             while(arr[left] <= pivot && left <right){
-                //cur<num, left++ cur++
+                /**
+                 * 从左边开始扫描，arr[left] <= pivot，就left++
+                 * 直到左边比pivot小了，停止，定位到该目标元素，等待交换，右边的目标元素
+                 */
                 left ++;
             }
+            //交换第一次目标元素了
             arr[right] = arr[left];
+            arr[left] = pivot;
 
         }
-        arr[left] = pivot;
+
         return left;
     }
     public static void main(String[] args) {
@@ -62,7 +71,7 @@ public class QuickSort extends Sort {
             }
         }
         System.out.println(succeed ? "Nice!" : "Fucked!");
-        int [] arr = new int[]{6,5,1,2,4,3};
+        int [] arr = new int[]{5,8,2,3,0,7,4,6};
         printArray(arr);
 
         quickSort(arr);

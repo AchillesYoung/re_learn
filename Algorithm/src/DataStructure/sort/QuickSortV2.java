@@ -48,7 +48,7 @@ public class QuickSortV2 extends Sort {
                 //if cur <num,cur的位置和less++换，less区域也变大，然后cur++
                 swap(arr, ++less, cur++);
             } else if (arr[cur] > arr[right]) {
-                //if cur>num,more--的位置和cur换，然后继续循环
+                //Zif cur>num,more--的位置和cur换，然后继续循环
                 swap(arr, --more, cur);
             } else {
 //                不然就是相等，就直接++
