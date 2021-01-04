@@ -12,10 +12,13 @@ import java.util.Stack;
  */
 public class ReverseList {
 
-    public ListNode reverse(ListNode head) {return reverseDemo(head);}
+    public ListNode reverse(ListNode head) {
+        return reverseDemo(head);
+    }
+
     public ListNode reverseDemo(ListNode head) {
 
-        if(head == null || head.next == null){
+        if (head == null || head.next == null) {
             return head;
         }
         ListNode next = head.next;
@@ -27,12 +30,12 @@ public class ReverseList {
 
 
     //递归
-    public ListNode reverseListRecur(ListNode head){
+    public ListNode reverseListRecur(ListNode head) {
         return reverseListRecur(head, null);
     }
 
     //先撸递归
-    public ListNode reverseListRecur(ListNode cur,ListNode prev) {
+    public ListNode reverseListRecur(ListNode cur, ListNode prev) {
         //如果递归到结尾了，就把prev返回，然后一路返回，因为递归在return那里，所以最后
         //结束了就return新的头节点
         if (cur == null) return prev;
@@ -40,7 +43,7 @@ public class ReverseList {
         ListNode next = cur.next;
         cur.next = prev;
         //return 一路上传递的就是反转以后的头节点
-        return reverseListRecur(next,cur);
+        return reverseListRecur(next, cur);
     }
 
     public static ListNode reverseList(ListNode head) {
@@ -48,7 +51,7 @@ public class ReverseList {
         ListNode prev = null;
         ListNode cur = head;
         ListNode next = null;
-        while (cur !=null){
+        while (cur != null) {
             //非递归的思想也是，prev和next通过双指针建立联系，不是通过.next去建立联系
             //同时我们需要一个temp指针去记录next节点作为临时节点
             next = cur.next;
@@ -75,7 +78,7 @@ public class ReverseList {
     public static ListNode reverseListStack(ListNode head) {
 
 
-        if(head == null){
+        if (head == null) {
             return null;
         }
         Stack<ListNode> stack = new Stack();
@@ -117,7 +120,7 @@ public class ReverseList {
 
             cur = cur.next;
             //最后把cur.next清null，避免死循环，因为链表的指针和stack不冲突
-            cur.next=null;
+            cur.next = null;
         }
 
         return head;

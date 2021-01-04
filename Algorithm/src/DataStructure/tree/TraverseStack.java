@@ -1,8 +1,8 @@
 package DataStructure.tree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import QuestionMet.BinaryTree;
+
+import java.util.*;
 
 /**
  * stack写递归
@@ -61,6 +61,22 @@ public class TraverseStack {
             }
         }
         System.out.println();
+    }
+
+    public static void preOrderIterator(TreeNode root){
+        Deque<TreeNode> queue = new LinkedList();
+
+        while (!queue.isEmpty() || root !=  null){
+            while (root !=  null){
+                System.out.println(root.val);
+                queue.push(root);
+                root = root.left;
+            }
+            if (!queue.isEmpty()) {
+                root = queue.pop();
+                root = root.right;
+            }
+        }
     }
 
     public static void midPrintStack(TreeNode root) {
@@ -151,9 +167,9 @@ public class TraverseStack {
     }
 
     public static void main(String[] args) {
-//        midPrintStack(root);
+        preOrderIterator(root);
         System.out.println("-----");
-        System.out.println(kthSmall(root, 3).val);
+//        System.out.println(kthSmall(root, 3).val);
     }
 
     static {

@@ -6,18 +6,20 @@ public class LevelOrderTraverse {
 
     public static List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> resList = new ArrayList<List<Integer>>();
-        List<List<Integer>> resList2 = new LinkedList<>();
 
         if (root == null) {
             return resList;
         }
         //双端队列
         Deque<TreeNode> deque = new LinkedList<TreeNode>();
+        //pop配合push是栈，头进头出
+        //offer配合poll是队列，尾巴进头出
 
         deque.offer(root);
         while (!deque.isEmpty()) {
             //每次都new一个新的list
             List<Integer> level = new ArrayList<Integer>();
+            //关键点，每次循环之前计算下当前父节点有几个，把
             int currentLevelSize = deque.size();
             for (int i = 1; i <= currentLevelSize; ++i) {
                 TreeNode node = deque.poll();
@@ -35,41 +37,6 @@ public class LevelOrderTraverse {
     }
 
 
-    static Deque<TreeNode> queue = new LinkedList<>();
-
-
-
-    public static int getDepth(TreeNode root) {
-
-        if (root == null) {
-            return 0;
-        }
-        int leftDepth = getDepth(root.left);
-        int rightDepth = getDepth(root.right);
-        return Math.max(leftDepth, rightDepth) + 1;
-    }
-
-    public static void main(String[] args) {
-        Integer[] arr = new Integer[]{3, 9, 20, null, null, 15, 7};
-
-
-        TreeNode root = new TreeNode(0);
-        TreeNode node1 = new TreeNode(1);
-        TreeNode node2 = new TreeNode(2);
-//        TreeNode node3 = new TreeNode(3);
-        TreeNode node3 = null;
-        TreeNode node4 = null;
-//        TreeNode node4 = new TreeNode(4);
-        TreeNode node5 = new TreeNode(5);
-        TreeNode node6 = new TreeNode(6);
-        root.left = node1;
-        root.right = node2;
-        node1.left = node3;
-        node1.right = node4;
-        node2.left = node5;
-        node2.right = node6;
-        System.out.println(levelOrder(root));
-
 //        Deque<Integer> queue = new LinkedList<>();
 //        queue.push(1);
 //        queue.push(2);
@@ -78,7 +45,6 @@ public class LevelOrderTraverse {
 //        queue.push(5);
 //
 //        System.out.println(queue);
-//        //pop配合push是栈，头进头出
 //        System.out.println(queue.pop());//removeFirst模拟了栈FILO,
 //        Integer pop = queue.pop();
 //        if (pop == null) {
@@ -91,14 +57,12 @@ public class LevelOrderTraverse {
 //
 ////        System.out.println("栈push+Last:"+queue.getLast());
 ////        System.out.println("栈push+first:"+queue.getFirst());
-//        //offer配合poll是队列，尾巴进头出
 //
 //        System.out.println(queue.offer(4));//addLast模拟了队列,尾巴进头出
 //        System.out.println(queue.offer(5));//addLast模拟了队列,尾巴进头出
 //        System.out.println(queue.offer(6));//addLast模拟了队列,尾巴进头出
 //        System.out.println(queue.poll());//addLast模拟了队列,尾巴进头出
 
-    }
 
     public static List<List<Integer>> levelOrderTimeOut(TreeNode root) {
         queue.offer(root);
@@ -129,5 +93,18 @@ public class LevelOrderTraverse {
             level++;
         }
         return res;
+    }
+
+    static Deque<TreeNode> queue = new LinkedList<>();
+
+
+    public static int getDepth(TreeNode root) {
+
+        if (root == null) {
+            return 0;
+        }
+        int leftDepth = getDepth(root.left);
+        int rightDepth = getDepth(root.right);
+        return Math.max(leftDepth, rightDepth) + 1;
     }
 }

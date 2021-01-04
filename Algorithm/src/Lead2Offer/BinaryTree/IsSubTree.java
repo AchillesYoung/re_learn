@@ -20,7 +20,6 @@ public class IsSubTree {
         }
         // 三个｜｜ 如果match了，就不会走 isSubStruct了，match失败就继续递归跟节点去判断isSub
         return match(A, B) || isSubStructure(A.left, B) || isSubStructure(A.right, B);
-
     }
 
     public static boolean match(TreeNode a, TreeNode b) {

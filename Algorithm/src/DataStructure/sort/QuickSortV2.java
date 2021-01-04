@@ -26,6 +26,7 @@ public class QuickSortV2 extends Sort {
             swap(arr, left + (int) (Math.random() * (right - left + 1)), right);
             //参考坐标，
             int pivotArry []  = partition(arr, left, right);
+
             quickSort(arr,left,pivotArry[0]-1);
             quickSort(arr, pivotArry[1]+1, right);
         }
@@ -40,7 +41,7 @@ public class QuickSortV2 extends Sort {
         /**
          * more和less就是两个区域划分线
          */
-        int more = right;
+        int more = right  ;
         int cur = left;
         //arr[right]=num
         while (cur < more) {
