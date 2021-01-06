@@ -12,6 +12,23 @@ import java.util.List;
  */
 public class ListNode {
     Integer value;
+
+    public void setValue(Integer value) {
+        this.value = value;
+    }
+
+    public void setNext(ListNode next) {
+        this.next = next;
+    }
+
+    public Integer getValue() {
+        return value;
+    }
+
+    public ListNode getNext() {
+        return next;
+    }
+
     ListNode next;
 
     public ListNode(int x) {
