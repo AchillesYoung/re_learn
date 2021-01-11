@@ -13,12 +13,11 @@ public class BinarySearchTree {
                 && isSameTree(root2.left, root1.left);
     }
 
-    //判断两个二叉树是否相同
+
     boolean isBst(TreeNode root) {
         return isBst(root, null, null);
     }
 
-    //判断两个二叉树是否相同
     boolean isBst(TreeNode root, TreeNode max, TreeNode min) {
         // root 需要做什么?在这做。
         // 其他的不用 root 操心，抛给框
@@ -76,7 +75,7 @@ public class BinarySearchTree {
     }
 
     TreeNode getMin(TreeNode node) {
-// BST 最左边的就是最小的
+    // BST 最左边的就是最小的
         while (node.left != null) node = node.left; return node;
     }
 

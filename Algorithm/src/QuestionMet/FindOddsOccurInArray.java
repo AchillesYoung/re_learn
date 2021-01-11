@@ -32,7 +32,6 @@ public class FindOddsOccurInArray {
             if(map.get(key)%2 != 0) {
                 result = key;
             }
-
         }
         return result;
     }

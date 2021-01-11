@@ -19,9 +19,7 @@ public class MergeSort {
      * @return
      */
     public int[] merge_sort_recursive(int[] arr, int start, int end) {
-        if (start == end) {
-            return arr;
-        }
+        if (start == end) return arr;
         int mid = start + (start - end) >> 2;
         //Õâ×ó±ßÅÄºÃĞò
         merge_sort_recursive(arr, start, mid);

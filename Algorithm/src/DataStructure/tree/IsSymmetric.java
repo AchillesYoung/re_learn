@@ -15,21 +15,17 @@ public class IsSymmetric {
 
     public boolean isSymmetric(TreeNode root) {
 
-        if (root == null) {
-            return true;
-        }
+        if (root == null) return true;
         return compare(root.left, root.right);
 
     }
 
     public boolean compare(TreeNode root, TreeNode mirror) {
 
-        if (root == null && mirror == null) {
-            return true;
-        }
-        if (root == null || mirror == null) {
-            return false;
-        }
+        if (root == null && mirror == null) return true;
+
+        if (root == null || mirror == null) return false;
+
         return root.val.equals(mirror.val) && compare(root.left, mirror.right) && compare(root.right, mirror.left);
     }
 }

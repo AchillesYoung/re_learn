@@ -19,12 +19,8 @@ public class IsSubTree{
     }
 
     public static boolean match(TreeNode a, TreeNode b) {
-        if (b == null) {
-            return true;
-        }
-        if (a == null) {
-            return false;
-        }
+        if (b == null) return true;
+        if (a == null) return false;
         return a.val.equals(b.val) && match(a.left, b.left) && match(a.right, b.right);
     }
 

@@ -5,6 +5,7 @@ public class RemoveDuplNode {
     //相同的重复元素
     //去重复 要求：不要开空间，去重复结果稳定的
     //请问出了选择排序，还有最优的吗？
+
     public static Node solution(Node head) {
         if (head == null || head.next == null) return head;
         Node cur1 = head;
