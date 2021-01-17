@@ -62,40 +62,44 @@ public class QuickSortV2 extends Sort {
         return new int[] { less + 1, more };
     }
 
-    public static void swap(int[] arr, int i, int j) {
-        int tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
+    public static void swapBit(int[] arr, int i, int j) {
+        arr[i] = arr[i] ^ arr[j];
+        arr[j] = arr[i] ^ arr[j];
+        arr[i] = arr[i] ^ arr[j];
     }
     public static void main(String[] args) {
 
-        int testTime = 500000;
-        int maxSize = 100;
-        int maxValue = 100;
-        boolean succeed = true;
-        for (int i = 0; i < testTime; i++) {
-            int[] arr1 = generateRandomArray(maxSize, maxValue);
-            int[] arr2 = copyArray(arr1);
-            quickSort(arr1);
-            Arrays.sort(arr2);
-            if (!isEqual(arr1, arr2)) {
-                succeed = false;
-                printArray(arr1);
-                printArray(arr2);
-                break;
-            }
-        }
-        System.out.println(succeed ? "Nice!" : "Fucked!");
+//        int testTime = 500000;
+//        int maxSize = 100;
+//        int maxValue = 100;
+//        boolean succeed = true;
+//        for (int i = 0; i < testTime; i++) {
+//            int[] arr1 = generateRandomArray(maxSize, maxValue);
+//            int[] arr2 = copyArray(arr1);
+//            quickSort(arr1);
+//            Arrays.sort(arr2);
+//            if (!isEqual(arr1, arr2)) {
+//                succeed = false;
+//                printArray(arr1);
+//                printArray(arr2);
+//                break;
+//            }
+//        }
+//        System.out.println(succeed ? "Nice!" : "Fucked!");
         int [] arr = new int[]{6,5,1,2,4,3};
         printArray(arr);
-
-        quickSort(arr);
-        System.out.println();
+//
+//        quickSort(arr);
+//        System.out.println();
+//        printArray(arr);
+//        Arrays.sort(arr);
+//        printArray(arr);
+//
+//        System.out.println();
+        swap(arr,1,2);
         printArray(arr);
-        Arrays.sort(arr);
-        printArray(arr);
 
-        System.out.println();
+
 
     }
 }

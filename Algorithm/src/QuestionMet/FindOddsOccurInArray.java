@@ -9,7 +9,6 @@ public class FindOddsOccurInArray {
     // π”√“ÏªÚ
     public static int getNum (int[] nums) {
         int res = 0;
-
         for (int  num : nums) {
             res ^= num;
         }

@@ -4,19 +4,19 @@ import java.util.Arrays;
 
 /**
  * 排序算法可以分为内部排序和外部排序。
- *
+ * <p>
  * 内部排序是数据记录在内存中进行排序。
- *
+ * <p>
  * 而外部排序是因排序的数据很大，一次不能容纳全部的排序记录，在排序过程中需要访问外存。
  */
 public class Sort {
 
-    public static int [] generateRandomArray(int maxSize, int maxValue){
+    public static int[] generateRandomArray(int maxSize, int maxValue) {
         //长度随机
-        int length = (int)((maxSize+1) * Math.random());
-        int [] arr = new int[length];
-        for(int i = 0; i < arr.length; i++){
-            arr[i]= (int)((maxValue+1) * Math.random())-(int)((maxValue) * Math.random());
+        int length = (int) ((maxSize + 1) * Math.random());
+        int[] arr = new int[length];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) ((maxValue + 1) * Math.random()) - (int) ((maxValue) * Math.random());
         }
         return arr;
     }
@@ -33,13 +33,25 @@ public class Sort {
         arr[j] = tmp;
     }
 
+    public static void swap(int i, int j) {
+        i ^= j;
+        j ^= i;
+        i ^= j;
+    }
+
     public static void main(String[] args) {
-        int [] arr = new int[]{6,5,1,2,4,3,};
-        printArray(arr);
-        int i=1;
-        int j=3;
-        swapBit(arr,--j,i++);
-        printArray(arr);
+//        int [] arr = new int[]{6,5,1,2,4,3,};
+//        printArray(arr);
+//        int i=1;
+//        int j=3;
+//        swapBit(arr,--j,i++);
+//        printArray(arr);
+
+        int a = 3;
+        int b = 2;
+        swap(a, b);
+        System.out.println(a);
+        System.out.println(b);
 
     }
 
@@ -112,9 +124,9 @@ public class Sort {
 //        printArray(arr);
 //        BubbleSort.bubble_sort(arr);
 //        printArray(arr);
-//
-//    }
-
-
 
 }
+
+
+//
+//    }

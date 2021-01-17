@@ -29,10 +29,7 @@ public class LinkedList {
 
         //倒数第n
     public ListNode removeDuplicateNodes(ListNode head) {
-
-        if(head == null){
-            return null;
-        }
+        if(head == null) return null;
         //单链表去重
         Set<Integer> set = new HashSet<>();
         ListNode prev = null;

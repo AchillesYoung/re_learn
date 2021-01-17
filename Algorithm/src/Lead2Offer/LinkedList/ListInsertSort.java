@@ -1,5 +1,7 @@
 package Lead2Offer.LinkedList;
 
+import com.mysql.jdbc.StringUtils;
+
 /**
  * TODO
  *
@@ -42,7 +44,6 @@ public class ListInsertSort {
             head0.next = next.next;
             next.next = pre;
             pre.next = next;
-
 
         }
         return dummy.next;

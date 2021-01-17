@@ -5,9 +5,11 @@ public class ReverseList {
     static class Node {
         Node next;
         Integer value;
+
         Node(Integer value) {
             this.value = value;
         }
+
         Node(Node next, Integer value) {
             this.next = next;
             this.value = value;
@@ -36,16 +38,6 @@ public class ReverseList {
         Node next = head.next;
         head.next = prev;
         return recur(head, next);
-    }
-
-    public static void main(String[] args) {
-        Node head = new Node(6);
-        head.next = new Node(4);
-        head.next.next = new Node(8);
-        head.next.next.next = new Node(3);
-        head.next.next.next.next = new Node(9);
-        solution(head);
-
     }
 
 }
